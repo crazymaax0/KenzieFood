@@ -128,7 +128,7 @@ export class API {
 
     static async addToCart(id) {
 
-        const response = await fetch(this.url + "/cart", {
+        const response = await fetch(this.url + "/cart/add", {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json",
