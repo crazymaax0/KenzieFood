@@ -58,21 +58,6 @@ h2{
 main{ 
     height: 510px;
     padding: 0 18px;
-    overflow-x: scroll;
-}
-
-main::-webkit-scrollbar{
-    width: 342px;
-}
-
-main::-webkit-scrollbar-track{
-    background-color: #ffffff; 
-}
-
-main::-webkit-scrollbar-thumb{
-    background-color: #FF2253; 
-    border-radius: 15px;
-    border: 3px solid #ffffff;
 }
 /* ========== */
 
@@ -135,9 +120,76 @@ main nav button:hover{
 }
 /* ========== */
 
+/* ===== MODAL ADICIONAR PRODUCTS ===== */
+
+/* .displayNone {
+    display: none;
+} */
+
+label{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 0px;
+    color: #212529;
+}
+
+.field{
+    padding: 20px;
+    background: #F8F9FA;
+    border: 1.5px solid #DEE2E6;
+    box-sizing: border-box;
+    border-radius: 12px;
+    height: 52px;
+}
+
+#register-button{
+    width: 90%;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    background-color: #FF2253;
+    border: 1.5px solid #FF2253;
+    box-sizing: border-box;
+    border-radius: 32px;
+}
+
+.formPopupBackGround {
+    width: 100vw;
+    height: 100vh;
+  
+    position: fixed;
+    z-index: 2000;
+    top: 0px;
+    left: 0px;
+  
+    background-color: rgba(0, 0, 0, 0.4);
+} 
+  
+.formPopup {
+    width: 496px;
+    height: 685px;
+
+  
+    border-radius: 12px;
+    background-color: #F8F9FA;
+
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-direction: column;
+    
+    position:absolute;
+    left: 30rem;
+    top: 5rem;
+}
+
+/* ========== */
+
 /* ===== TABELA PRODUCTS ===== */
 
 table { 
+    width: 100%;
     border-collapse: separate; 
     border-spacing: 0 20px; 
     margin-top: 58px; 

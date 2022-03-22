@@ -50,6 +50,34 @@
             
         </nav>
 
+        <div class="formPopupBackGround displayNone" id="cadastroProduto">
+            
+            <form class="formPopup">
+                <h3>Cadastro de produto</h3>
+    
+                <label for="nome">Nome do Produto</label>
+                <input type="text" name="nome" placeholder="Digitar o nome" class="field"/>
+    
+                <label for="descricao">Descrição</label>
+                <input type="text" name="descricao" placeholder="Digitar a descrição" class="field" />
+    
+                <label for="categorias">Categorias</label>               
+                <input type="button" name="Panificadora" id="">
+                <input type="button" name="Frutas" id="">
+                <input type="button" name="Bebidas" id="">
+
+                <label for="valor">Valor do Produto</label>
+                <input type="number" name="valor" placeholder="Digitar o valor aqui" class="field"/>
+    
+                <label for="img">Link da imagem</label>
+                <input type="url" name="img" placeholder="Inserir link" class="field" />
+    
+    
+                <button id="register-button">Cadastrar Produto</button>
+            </form>
+
+        </div>
+
         <table>
             <thead>
                 <tr>
@@ -76,6 +104,38 @@
             </tbody>
            
         </table>
+
+        <div>
+            <h3>Edição de produto</h3>
+    
+                <label for="nome">Nome do Produto</label>
+                <input type="text" name="nome" placeholder="Digitar o nome" class="field"/>
+    
+                <label for="descricao">Descrição</label>
+                <input type="text" name="descricao" placeholder="Digitar a descrição" class="field" />
+    
+                <label for="categorias">Categorias</label>               
+                <input type="button" name="Panificadora" id="">
+                <input type="button" name="Frutas" id="">
+                <input type="button" name="Bebidas" id="">
+
+                <label for="valor">Valor do Produto</label>
+                <input type="number" name="valor" placeholder="Digitar o valor aqui" class="field"/>
+    
+                <label for="img">Link da imagem</label>
+                <input type="url" name="img" placeholder="Inserir link" class="field" />
+    
+    
+                <button id="delete-button">Excluir</button>
+                <button id="alt-button">Salvar Alterações</button>
+        </div>
+
+        <div>
+            <h3>Exclusão de produto</h3>
+            <p>Tem certeza que deseja exluir este produto?</p>
+            <button id="delete-button">Sim</button>
+            <button id="reset-button">Não</button>
+        </div>
     </main>
 
     <script type="module" src="./src/js/dashboardScript.js"></script>
