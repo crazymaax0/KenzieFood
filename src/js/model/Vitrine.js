@@ -5,7 +5,7 @@ export class Vitrine {
     static async createHomePageProducts(){
         const products = await API.products()
         const adminproducts = await API.adminProducts()
-
+        console.log(products)
         this.createCard(products)
         this.createCard(adminproducts)     
     }
