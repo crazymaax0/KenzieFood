@@ -58,6 +58,7 @@ main{
 
 main::-webkit-scrollbar{
     width: 342px;
+    height: 12px;
 }
 
 main::-webkit-scrollbar-track{
@@ -72,13 +73,31 @@ main::-webkit-scrollbar-thumb{
 /* ========== */
 
 /* ===== NAV PRODUCTS ===== */
-main nav{
+nav{
+    margin-left: 15px;
     margin-bottom: 28px;
+    padding-bottom: 5px;
     display: flex;
     flex-wrap: nowrap;
+    overflow-x: scroll;
 }
 
-main nav button{
+nav::-webkit-scrollbar{
+    width: 342px;
+    height: 10px;
+}
+
+nav::-webkit-scrollbar-track{
+    background-color: #ffffff; 
+}
+
+nav::-webkit-scrollbar-thumb{
+    background-color: #FF2253; 
+    border-radius: 15px;
+    border: 3px solid #ffffff;
+}
+
+nav button{
     height: 48px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
@@ -91,16 +110,16 @@ main nav button{
     box-sizing: border-box;
 }
 
-main nav button:first-child{
+nav button:first-child{
     color: #ffffff;
     background-color: #FF2253;
 }
 
-main nav button:last-child{
+nav button:last-child{
     margin-right: 0;
 }
 
-main nav button:hover{
+nav button:hover{
     cursor: pointer;
 }
 /* ========== */
@@ -188,6 +207,7 @@ main nav button:hover{
 .cont-products .card-product .buy .cont-icon-add-to-cart:hover{
     cursor: pointer;
 }
+/* ========== */
 
 /*                             CARRINHO                          */
 
@@ -309,21 +329,17 @@ aside h4 {
 }
 
 #cartUl {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
+
+    padding: 19px 10px 0px 10px;
 }
 
-#cartUl ul li {
-
-}
-
-#cartUl ul li div {
-
+#cartUl li {
     
-}
+    height: 90px;
 
-.dados {
-    
+    display: flex;
 }
 
 #cartUl li div img {
@@ -331,7 +347,77 @@ aside h4 {
     height: 75px;
     border-radius: 8px;
 
+    object-fit: cover;
 }
+
+#cartUl li div {
+
+    
+}
+
+.dados {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-left: 12px;
+}
+
+.dados-line {
+    display: flex;
+    margin-right: 10px;
+}
+
+.dados-line h4 {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 500;   
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    margin-top: 4px;
+}
+
+.trash-can-background {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 4px;
+    background-color: #F8F9FA;
+}
+
+.dados p {
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #868E96;
+}
+
+.dadosTotalValor {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #212529;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .dados h5 {
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: #212529;
+
+        margin-right: 2px;
+    }
+
+
 
 
 
@@ -396,8 +482,14 @@ aside h4 {
 
 
 
-    /* ========== */
+    /* ===== MEDIA QUERY ===== */
 
+@media screen and (max-width: 360px){
+    
+    aside{
+        width: 360px;
+    }
+}
 
 @media screen and (min-width: 768px){
     body{
@@ -438,11 +530,13 @@ aside h4 {
     }
 
     main{
-        width: 970px;
+        width: 100%;
         height: auto;
         padding: 0 15px;
         overflow-x: auto;
         overflow-y: auto;
+        display: flex;
+        justify-content: space-around;
     }
 
     main::-webkit-scrollbar{
@@ -486,4 +580,33 @@ aside h4 {
     .cont-products .card-product .buy{
         width: 200px;
     }
+
+    aside{
+        display: none;
+    }
+
+    .displayNone{
+        display: block;
+    }
+
+    .cartPopupBackGround{
+        width: 320px;
+        max-height: 583px;
+        margin-right: 15px;
+        background-color: transparent;
+        position: relative;
+    }
+
+    .cartPopup{
+        width: 320px;
+        max-height: 583px;
+        margin: 0;
+    }
+
+    .cartPopupBody{
+        min-height: 296px;
+        max-height: 405px;
+    }
 }
+
+/* ========== */
