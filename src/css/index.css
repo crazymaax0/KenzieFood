@@ -350,11 +350,6 @@ aside h4 {
     object-fit: cover;
 }
 
-#cartUl li div {
-
-    
-}
-
 .dados {
     display: flex;
     flex-direction: column;
