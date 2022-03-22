@@ -531,7 +531,7 @@ aside h4 {
         overflow-x: auto;
         overflow-y: auto;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     main::-webkit-scrollbar{
