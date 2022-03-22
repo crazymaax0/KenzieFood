@@ -31,14 +31,14 @@
     </header>
 
 
-    <main>
+    <nav>
+        <button>Todos</button>
+        <button>Panificadora</button>
+        <button>Frutas</button>
+        <button>Bebidas</button>
+    </nav>
 
-        <nav>
-            <button>Todos</button>
-            <button>Panificadora</button>
-            <button>Frutas</button>
-            <button>Bebidas</button>
-        </nav>
+    <main>
 
         <ul class="cont-products">
             <li class="card-product">
@@ -65,82 +65,84 @@
                 </div>
 
             </li>
+
+            
         </ul>
+    
+        <div class="cartPopupBackGround displayNone" id="cartPopupBackGround">
+    
+            <div class="cartPopup" > 
+    
+                <div class="cartPopupTop" > 
+    
+                    <div class="cartPopupTopCarrinho" >
+                        <i class="fa-solid fa-cart-arrow-down"></i> 
+                        <span>Carrinho</span> 
+                    </div>
+    
+                    <div class="fa-xContainer" id="fecharCarrinho" >
+                        <i class="fa-solid fa-x" ></i>
+                    </div>
+                
+                </div>
+    
+                <div class="cartPopupBody" >
+    
+                    <ul id="cartUl" >
+                        
+                        <li>
+    
+                            <div>
+                                <img src="src/img/panqueca.png" alt="product">
+                            </div>
+    
+                            <div class="dados" > 
+    
+                                <h4>Panqueca de banana com aveia</h4>
+    
+                                <p>Panificadora</p>
+    
+                            </div>
+    
+                        </li>
+    
+                    </ul>
+    
+    
+    
+                </div>
+    
+                <div class="cartPopupQnt" >
+    
+                    <span class="qnt" >Quantidade</span>
+    
+    
+    
+                    <div class="cartPopupQntTotal" >
+                        <span>5</span>
+                    </div>
+    
+                </div>
+    
+                <div class="cartPopupTotal" >
+    
+                    <span class="total" >Total</span>
+    
+                    <div class="cartPopupTotalValor" >
+                        <p class="sifrao" >R$</p><span>10,00</span>
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+        </div>
         
     </main>
 
     <aside id="abrirCarrinho">
         <i class="fa-solid fa-cart-arrow-down" ></i> <h4>Carrinho</h4>
     </aside>
-
-    <div class="cartPopupBackGround displayNone" id="cartPopupBackGround">
-
-        <div class="cartPopup" > 
-
-            <div class="cartPopupTop" > 
-
-                <div class="cartPopupTopCarrinho" >
-                    <i class="fa-solid fa-cart-arrow-down"></i> 
-                    <span>Carrinho</span> 
-                </div>
-
-                <div class="fa-xContainer" id="fecharCarrinho" >
-                    <i class="fa-solid fa-x" ></i>
-                </div>
-            
-            </div>
-
-            <div class="cartPopupBody" >
-
-                <ul id="cartUl" >
-                    
-                    <li>
-
-                        <div>
-                            <img src="src/img/panqueca.png" alt="product">
-                        </div>
-
-                        <div class="dados" > 
-
-                            <h4>Panqueca de banana com aveia</h4>
-
-                            <p>Panificadora</p>
-
-                        </div>
-
-                    </li>
-
-                </ul>
-
-
-
-            </div>
-
-            <div class="cartPopupQnt" >
-
-                <span class="qnt" >Quantidade</span>
-
-
-
-                <div class="cartPopupQntTotal" >
-                    <span>5</span>
-                </div>
-
-            </div>
-
-            <div class="cartPopupTotal" >
-
-                <span class="total" >Total</span>
-
-                <div class="cartPopupTotalValor" >
-                    <p class="sifrao" >R$</p><span>10,00</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
 
     <script src="https://kit.fontawesome.com/94fc682ddb.js" crossorigin="anonymous"></script>
     <script src="./src/js/script.js"></script>
