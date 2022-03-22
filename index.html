@@ -40,9 +40,8 @@
             <button>Bebidas</button>
         </nav>
 
-<<<<<<< Updated upstream
         <ul class="cont-products">
-            <!-- <li class="card-product">
+            <li class="card-product">
                 <img src="src/img/panqueca.png" alt="product">
 
                 
@@ -65,17 +64,16 @@
                     </div>
                 </div>
 
-            </li> -->
+            </li>
         </ul>
         
     </main>
-=======
-    <aside>
-        <i class="fa-solid fa-cart-arrow-down"></i> <h4>Carrinho</h4>
-    </aside>
->>>>>>> Stashed changes
 
-    <div class="cartPopupBackGround">
+    <aside id="abrirCarrinho">
+        <i class="fa-solid fa-cart-arrow-down" ></i> <h4>Carrinho</h4>
+    </aside>
+
+    <div class="cartPopupBackGround displayNone" id="cartPopupBackGround">
 
         <div class="cartPopup" > 
 
@@ -86,18 +84,29 @@
                     <span>Carrinho</span> 
                 </div>
 
-
-                    <i class="fa-solid fa-x"></i>
+                <div class="fa-xContainer" id="fecharCarrinho" >
+                    <i class="fa-solid fa-x" ></i>
+                </div>
             
             </div>
 
             <div class="cartPopupBody" >
 
-                <ul class="" >
+                <ul id="cartUl" >
                     
                     <li>
 
+                        <div>
+                            <img src="src/img/panqueca.png" alt="product">
+                        </div>
 
+                        <div class="dados" > 
+
+                            <h4>Panqueca de banana com aveia</h4>
+
+                            <p>Panificadora</p>
+
+                        </div>
 
                     </li>
 
