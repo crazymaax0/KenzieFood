@@ -329,21 +329,17 @@ aside h4 {
 }
 
 #cartUl {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
+
+    padding: 19px 10px 0px 10px;
 }
 
-#cartUl ul li {
-
-}
-
-#cartUl ul li div {
-
+#cartUl li {
     
-}
+    height: 90px;
 
-.dados {
-    
+    display: flex;
 }
 
 #cartUl li div img {
@@ -351,7 +347,77 @@ aside h4 {
     height: 75px;
     border-radius: 8px;
 
+    object-fit: cover;
 }
+
+#cartUl li div {
+
+    
+}
+
+.dados {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-left: 12px;
+}
+
+.dados-line {
+    display: flex;
+    margin-right: 10px;
+}
+
+.dados-line h4 {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 500;   
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    margin-top: 4px;
+}
+
+.trash-can-background {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 4px;
+    background-color: #F8F9FA;
+}
+
+.dados p {
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #868E96;
+}
+
+.dadosTotalValor {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #212529;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .dados h5 {
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: #212529;
+
+        margin-right: 2px;
+    }
+
+
 
 
 
