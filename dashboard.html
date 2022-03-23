@@ -53,52 +53,6 @@
             
         </nav>
 
-        <div class="formPopupBackGround " id="cadastroProduto">
-            
-            <form class="formPopup">
-
-                <div class="cadastroBackGround" >
-
-                    <h3>Cadastro de produto</h3>
-
-                    <div class="fa-xContainer" id="" >
-                        <i class="fa-solid fa-x" ></i>
-                    </div>
-
-                </div>
-    
-                <div class="formBody">
-
-                    <label for="nome">Nome do Produto</label>
-                    <input type="text" name="nome" placeholder="Digitar o nome" class="field nome"/>
-        
-                    <label for="descricao">Descrição</label>
-                    <input type="text" name="descricao" placeholder="Digitar a descrição" class="field descricao" />
-        
-                    <label for="categorias">Categorias</label>
-                    
-                    <div class="containerCategorias" >
-                        <input type="button" value="Panificadora" id="" class="categorias">
-                        <input type="button" value="Frutas" id="" class="categorias">
-                        <input type="button" value="Bebidas" id="" class="categorias">
-                    </div>
-
-
-                    <label for="valor">Valor do Produto</label>
-                    <input type="number" name="valor" placeholder="Digitar o valor aqui" class="field valor"/>
-        
-                    <label for="img">Link da imagem</label>
-                    <input type="url" name="img" placeholder="Inserir link" class="field link" />
-        
-        
-                    <button id="register-button">Cadastrar Produto</button>
-
-                </div>
-
-            </form>
-
-        </div>
-
         <table>
             <thead>
                 <tr>
@@ -126,37 +80,134 @@
            
         </table>
 
-        <div>
-            <h3>Edição de produto</h3>
-    
-                <label for="nome">Nome do Produto</label>
-                <input type="text" name="nome" placeholder="Digitar o nome" class="field"/>
-    
-                <label for="descricao">Descrição</label>
-                <input type="text" name="descricao" placeholder="Digitar a descrição" class="field" />
-    
-                <label for="categorias">Categorias</label>               
-                <input type="button" name="Panificadora" id="">
-                <input type="button" name="Frutas" id="">
-                <input type="button" name="Bebidas" id="">
+        <div class="formPopupBackGround displayNone" id="cadastroProduto">
+            
+            <form class="formPopup">
 
-                <label for="valor">Valor do Produto</label>
-                <input type="number" name="valor" placeholder="Digitar o valor aqui" class="field"/>
+                <div class="cadastroBackGround" >
+
+                    <h3>Cadastro de produto</h3>
+
+                    <div class="fa-xContainer" id="fecharCadastro" >
+                        <i class="fa-solid fa-x" ></i>
+                    </div>
+
+                </div>
     
-                <label for="img">Link da imagem</label>
-                <input type="url" name="img" placeholder="Inserir link" class="field" />
-    
-    
-                <button id="delete-button">Excluir</button>
-                <button id="alt-button">Salvar Alterações</button>
+                <div class="formBody">
+
+                    <label for="nome">Nome do Produto</label>
+                    <input type="text" name="nome" placeholder="Digitar o nome" class="field nome"/>
+        
+                    <label for="descricao">Descrição</label>
+                    <input type="text" name="descricao" placeholder="Digitar a descrição" class="field descricao" />
+        
+                    <label for="categorias">Categorias</label>
+                    
+                    <div class="containerCategorias" >
+                        <input type="radio" name="categoria" id="panificadora">
+                        <label class="categorias" for="panificadora" >Panificadora</label>
+                        <input type="radio" name="categoria" id="frutas">
+                        <label class="categorias" for="frutas" >Frutas</label>
+                        <input type="radio" name="categoria" id="bebidas">
+                        <label class="categorias" for="bebidas" >Bebidas</label>
+                    </div>
+
+                    <label for="valor">Valor do Produto</label>
+                    <input type="number" name="valor" placeholder="Digitar o valor aqui" class="field valor"/>
+        
+                    <label for="img">Link da imagem</label>
+                    <input type="url" name="img" placeholder="Inserir link" class="field link" />
+        
+        
+                    <button id="register-button">Cadastrar Produto</button>
+
+                </div>
+
+            </form>
+
         </div>
 
-        <div>
-            <h3>Exclusão de produto</h3>
-            <p>Tem certeza que deseja exluir este produto?</p>
-            <button id="delete-button">Sim</button>
-            <button id="reset-button">Não</button>
+        
+        <div class="formPopupBackGround displayNone" id="edicaoProduto">
+
+            <form class="formPopup" >
+
+                <div class="cadastroBackGround" >
+
+                    <h3>Edição de produto</h3>                
+
+                    <div class="fa-xContainer" id="" >
+                        <i class="fa-solid fa-x" ></i>
+                    </div>
+
+                </div>
+
+                <div class="formBody">
+
+                    <label for="nome">Nome do Produto</label>
+                    <input type="text" name="nome" placeholder="Digitar o nome" class="field nome"/>
+        
+                    <label for="descricao">Descrição</label>
+                    <input type="text" name="descricao" placeholder="Digitar a descrição" class="field descricao" />
+        
+                    <label for="categorias">Categorias</label> 
+                    
+                    <div class="containerCategorias" >
+                        <input type="radio" name="categoria" id="panificadora">
+                        <label class="categorias" for="panificadora" >Panificadora</label>
+                        <input type="radio" name="categoria" id="frutas">
+                        <label class="categorias" for="frutas" >Frutas</label>
+                        <input type="radio" name="categoria" id="bebidas">
+                        <label class="categorias" for="bebidas" >Bebidas</label>
+                    </div>
+
+                    <label for="valor">Valor do Produto</label>
+                    <input type="number" name="valor" placeholder="Digitar o valor aqui" class="field valor"/>
+        
+                    <label for="img">Link da imagem</label>
+                    <input type="url" name="img" placeholder="https://image.lorem.com/" class="field link" />
+        
+                    <div class="containerBtts">
+                        <button id="delete-button">Excluir</button>
+                        <button id="alt-button">Salvar Alterações</button>
+                    </div>
+
+                </div>
+
+            </form>
+
         </div>
+
+
+        <div class="formPopupBackGround displayNone" id="excluirProduto">
+
+            <form class="exclusaoPopup">
+
+                <div class="exclusaoBackGround" >
+
+                    <h3>Exclusão de produto</h3>              
+
+                    <div class="fa-xContainer" id="" >
+                        <i class="fa-solid fa-x" ></i>
+                    </div>
+
+                </div>
+                
+                <div class="exclusaoBody" >
+                    <h2>Tem certeza que deseja exluir este produto?</h2>
+
+                    <div class="exclusaoBtts">
+                        <input class="deleteBtt--nao" type="button" value="Não">
+                        <input class="deleteBtt--sim" type="button" value="Sim">
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+
     </main>
 
     <script src="https://kit.fontawesome.com/94fc682ddb.js" crossorigin="anonymous"></script>

@@ -3,7 +3,17 @@ import { Vitrine } from "./model/Vitrine.js";
 
 Vitrine.createAdminPageProducts()
 
+const add                   = document.getElementById("add")
+const cadastroProdutoModal  = document.getElementById("cadastroProduto")
+const fecharCadastroButton  = document.getElementById("fecharCadastro")
 
+add.addEventListener("click", () => {
+    cadastroProdutoModal.classList.remove("displayNone")
+})
+
+fecharCadastroButton.addEventListener("click", () => {
+    cadastroProdutoModal.classList.add("displayNone")
+})
 
 class Filtros {
 

@@ -127,7 +127,7 @@ main nav button:hover{
 /* ===== MODAL ADICIONAR PRODUCTS ===== */
 
 .displayNone {
-    display: none;
+    display: none !important;
 }
 
 .formPopupBackGround {
@@ -264,15 +264,31 @@ main nav button:hover{
     width: 136px;
     height: 40px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 400;
-    color: #868E96;
+    color: #868E96 !important;
 
     border: none;
     /* border: 1.5px solid #DEE2E6; */
     border-radius: 32px;
     background: #F8F9FA;
+}
+
+.categorias:hover {
+    cursor: pointer;
+}
+
+.containerBtts {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #register-button{
@@ -287,6 +303,125 @@ main nav button:hover{
     border-radius: 32px;
 }
 
+#delete-button {
+    width: 192px;
+    height: 52px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #868E96;
+
+    border: none;
+    border-radius: 32px;
+}
+
+#alt-button {
+    width: 240px;
+    height: 52px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+
+    border: none;
+    border-radius: 32px;
+    background-color: #FF2253;
+}
+
+#delete-button:hover, #alt-button:hover {
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + .categorias {
+    color: white !important;
+    background-color: #FF2253;
+}
+
+.exclusaoBody {
+    width: 496px;
+    height: 213px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    border-radius: 0px 0px 8px 8px;
+    background-color: #FFF;
+}
+
+.exclusaoBody h2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+}
+
+.exclusaoBtts {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.exclusaoBtts input {
+    width: 210px;
+    height: 52px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #868E96;
+
+    border: none;
+    border-radius: 32px;
+}
+
+.exclusaoBtts input:hover {
+    cursor: pointer;
+}
+
+.deleteBtt--sim:hover {
+    color: #FFF;
+    background-color: #FF2253;
+}
+
+.exclusaoBackGround {
+    max-width: 100%;
+    max-height: 70px;
+    background-color: #F8F9FA;
+    padding: 25px 28px 25px 28px;
+    border-radius: 8px 8px 0px 0px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.exclusaoBackGround h3 {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.exclusaoPopup {
+    width: 496px;
+
+    position:absolute;
+    top: calc(100% - 85%);
+
+
+    border-radius: 12px;
+    background-color: #F8F9FA;
+}
 
 
 
