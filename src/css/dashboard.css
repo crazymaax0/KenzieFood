@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body{
     width: 100vw;
     height: 100vh;
@@ -126,37 +130,13 @@ main nav button:hover{
     display: none;
 }
 
-label{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 0px;
-    color: #212529;
-}
-
-.field{
-    padding: 20px;
-    background: #F8F9FA;
-    border: 1.5px solid #DEE2E6;
-    box-sizing: border-box;
-    border-radius: 12px;
-    height: 52px;
-}
-
-#register-button{
-    width: 90%;
-    font-family: 'Poppins', sans-serif;
-    color: #ffffff;
-    background-color: #FF2253;
-    border: 1.5px solid #FF2253;
-    box-sizing: border-box;
-    border-radius: 32px;
-}
-
 .formPopupBackGround {
     width: 100vw;
     height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   
     position: fixed;
     z-index: 2000;
@@ -168,21 +148,154 @@ label{
   
 .formPopup {
     width: 496px;
-    height: 685px;
-
-  
-    border-radius: 12px;
-    background-color: #F8F9FA;
 
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
     flex-direction: column;
+
+    /* padding: 20px; */
     
-    position:absolute;
+    
+    /* position:absolute;
     left: 30rem;
-    top: 5rem;
+    top: 5rem; */
+    border-radius: 12px;
+    background-color: #F8F9FA;
 }
+
+.cadastroBackGround {
+    max-width: 100%;
+    max-height: 70px;
+    background-color: #F8F9FA;
+    padding: 25px 28px 25px 28px;
+    border-radius: 8px 8px 0px 0px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.cadastroBackGround h3 {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.fa-x {
+    color: #868E96;
+}
+
+.fa-xContainer {
+    width: 31px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 4px;
+    background-color: #E9ECEF;
+}
+
+.fa-xContainer:hover {
+    background-color: white;
+}
+
+.fa-xContainer:hover .fa-x{
+    color: #FF2253;
+    font-size: 17px;
+}
+
+.formBody {
+    max-width: 100%;
+    height: 100%;
+
+    padding: 36px 20px 36px 20px;
+
+    background-color: #FFF;
+}
+
+.formBody input {
+    display: block;
+}
+
+.field{
+    padding: 20px;
+    background: #F8F9FA;
+    border: 1.5px solid #DEE2E6;
+    border-radius: 12px;
+    height: 52px;
+    width: 100%;
+}
+
+.formBody label {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #212529;
+}
+
+.formBody .nome, .formBody .descricao, .formBody .valor, .formBody .link {
+    margin-top: 16px;
+    margin-bottom: 40px; 
+}
+
+.formBody .descricao {
+    height: 80px;
+
+    position: relative;
+}
+
+.formBody .descricao::placeholder {
+    position: absolute;
+}
+
+.formBody .containerCategorias {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.categorias {
+    width: 136px;
+    height: 40px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #868E96;
+
+    border: none;
+    /* border: 1.5px solid #DEE2E6; */
+    border-radius: 32px;
+    background: #F8F9FA;
+}
+
+#register-button{
+    width: 100%;
+    height: 52px;
+
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+
+    background-color: #FF2253;
+    border: 1.5px solid #FF2253;
+    border-radius: 32px;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* ========== */
 
