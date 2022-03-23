@@ -1,3 +1,4 @@
+import { Adm } from "./Adm.js";
 import { API } from "./API.js";
 
 export class Vitrine {
@@ -15,10 +16,14 @@ export class Vitrine {
     }
 
     static async createHomePageProducts(){
-        // const products = await API.products()
         const adminproducts = await API.adminProducts()
-        // console.log(products)
-        // this.createCard(products)
+
+        const token = Adm.getUserInfo()
+
+        if(token === API.token){
+            /* CRIAR O ELEMENTO "PARA DASHBOARD" NO HEADER, QUE SOMENTE APARECE QUANDO O TOKEN É O DO ADM */
+        }
+        
         this.createCard(adminproducts)     
     }
 
