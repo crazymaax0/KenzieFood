@@ -11,7 +11,7 @@ export class Adm {
     };
 
     static getUserInfo(){
-        const colectInfo = window.localStorage.getItem("userData") 
+        const colectInfo = window.localStorage.getItem("userInfo") 
         return JSON.parse(colectInfo)
     }
 
