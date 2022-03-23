@@ -1,5 +1,6 @@
 import { API } from "./model/API.js";
 import { Vitrine } from "./model/Vitrine.js";
+import { Adm } from "./model/Adm.js"
 
 Vitrine.createAdminPageProducts()
 
@@ -47,7 +48,7 @@ class Filtros {
     
 }
 
-console.log(Filtros.filtrarNome())
+// console.log(Filtros.filtrarNome())
 
 const campoBuscaNome = document.querySelector("#pesqNome")
 campoBuscaNome.addEventListener("keyup", function(){
@@ -59,3 +60,7 @@ campoBuscaNome.addEventListener("keyup", function(){
 
     console.log(resposta)
 })
+
+const btnAddNewProduct = document.getElementById('add');
+
+btnAddNewProduct.addEventListener('click', () => Adm.getInfosNewProduct());

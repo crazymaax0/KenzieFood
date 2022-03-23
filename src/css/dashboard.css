@@ -66,23 +66,27 @@ main{
 /* ========== */
 
 /* ===== NAV PRODUCTS ===== */
-main nav{
-    margin-bottom: 28px;
-    display: flex;
-    flex-wrap: nowrap;
-}
-
 main nav button{
     height: 48px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     margin-right: 22px;
-    padding: 15px 20px;
+    padding: 15px 20px 15px 26px;
     color: #212529;
     background-color: #FFF7F4;
     border: none;
     border-radius: 30px;
     box-sizing: border-box;
+}
+
+main nav button:first-child{
+    color: #ffffff;
+    background-color: #FF2253;
+    padding: 15px 20px;
+}
+
+main nav button:last-child{
+    padding: 15px 20px;
 }
 
 #pao{
@@ -301,6 +305,10 @@ main nav button:hover{
     background-color: #FF2253;
     border: 1.5px solid #FF2253;
     border-radius: 32px;
+}
+
+#register-button:hover{
+    cursor: pointer;
 }
 
 #delete-button {
