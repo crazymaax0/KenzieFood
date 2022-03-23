@@ -129,65 +129,35 @@ export class Vitrine {
         Vitrine.userProducts = Vitrine.getUserData()
 
         if(Vitrine.userProducts == null){
-            Vitrine.userProducts = []
+            Vitrine.userProducts = [] 
+        }
+            
+        const produto = products.find(product => product.id === id)
+        const existe  = Vitrine.userProducts.find( element => element.id == produto.id)
+
+        if(existe){
+            existe.quantity += 1
+        }
+        else {
+            produto.quantity = 1
+            Vitrine.userProducts.push(produto)
         }
 
-        const product = products.filter(product => product.id === id)
-        console.log(product)
-
-        // Vitrine.userProducts.push(product[0])
         console.log(Vitrine.userProducts)
-    
-        /*  PRIMEIRA TENTANTIVA,COM O FOR
-            
-            for(let i = 0; i < products.length; i++){
-            if(products[i].id === id){
-
-                if(Vitrine.userProducts.length === 0){
-                    products[i].quantity = 1
-                    Vitrine.userProducts.push(products[i])
-                    break
-                }
-                console.log(products[i])
 
 
-                for(let j = 0; j < Vitrine.userProducts.length; j++){
 
-                    console.log(Vitrine.userProducts[j])
+        Vitrine.setUserData(Vitrine.userProducts)
 
-                    if(Vitrine.userProducts[j].id === id ){
-                        Vitrine.userProducts[j].quantity++
-                        break
-                    }else{
-                        products[i].quantity = 1
-                        Vitrine.userProducts.push(products[i])
-                        break
-                    }
-                }
-
-
-            }
-        } */
-
-        // Vitrine.setUserData(Vitrine.userProducts)
-
-        Vitrine.createCartProducts() 
+        Vitrine.createCartCard()
     }
 
-    static async createCartProducts() {
+    static createCartCard() {
 
-        // const products = await API.cart()
+        let cartProducts = Vitrine.getUserData()
 
-        const cartProducts = Vitrine.getUserData()
-    
         const ul = document.getElementById("cartUl")
         ul.innerHTML = ""
-        console.log(cartProducts)
-    }
-
-    static createCartCard(quantity) {
-        console.log(quantity)
-
         cartProducts.forEach((product) => {
 
             const {categoria, id, imagem, nome, preco} = product

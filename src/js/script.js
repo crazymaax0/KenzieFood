@@ -9,5 +9,4 @@ document.getElementById("fecharCarrinho").addEventListener( "click", () => {
 })
 
 Vitrine.createHomePageProducts()
-// Vitrine.createCartCard()
-Vitrine.createCartProducts() /* testes - apagar */
+Vitrine.createCartCard()
