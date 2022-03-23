@@ -3,8 +3,6 @@ import { API } from "./API.js";
 
 export class Vitrine {
 
-    static userProducts = []
-
     static getUserData(){
         const colectInfo = window.localStorage.getItem("userData") 
         return JSON.parse(colectInfo)
@@ -23,7 +21,7 @@ export class Vitrine {
         if(token === API.token){
             /* CRIAR O ELEMENTO "PARA DASHBOARD" NO HEADER, QUE SOMENTE APARECE QUANDO O TOKEN É O DO ADM */
         }
-        
+
         this.createCard(adminproducts)     
     }
 
@@ -129,26 +127,12 @@ export class Vitrine {
     static async addToCart(e){
         
         const id = Number(e.target.id)
+        
+        await API.addToCart(id)
+        
+        const cartItens = await API.cart()
 
-        const products = await API.adminProducts()
-        Vitrine.userProducts = Vitrine.getUserData()
-
-        if(Vitrine.userProducts == null){
-            Vitrine.userProducts = [] 
-        }
-            
-        const product = products.find(product => product.id === id)
-        const exists  = Vitrine.userProducts.find( element => element.id == product.id)
-
-        if(exists){
-            exists.quantity += 1
-        }
-        else {
-            product.quantity = 1
-            Vitrine.userProducts.push(product)
-        }
-
-        Vitrine.setUserData(Vitrine.userProducts)
+        Vitrine.setUserData(cartItens)
 
         Vitrine.createCartCard()
     }
@@ -159,9 +143,10 @@ export class Vitrine {
 
         const ul = document.getElementById("cartUl")
         ul.innerHTML = ""
-        cartProducts.forEach((product) => {
 
-            const {categoria, id, imagem, nome, preco} = product
+        cartProducts.forEach((product) => {
+            /* ver se coloca quantity no html, para mostrar a quantidade de itens no carrinho */
+            const {quantity, products:{categoria, id, imagem, nome, preco}} = product
             if(id){
 
                 function categories() {
@@ -223,7 +208,7 @@ export class Vitrine {
         cartProducts.forEach((product) => {
             
             totalItens += product.quantity
-            totalCash += product.preco * product.quantity
+            totalCash += product.products.preco * product.quantity
         })
 
         let priceString = totalCash.toString()
@@ -239,25 +224,26 @@ export class Vitrine {
         if(id === 0){
             id = Number(e.target.parentNode.id)
         }
-        Vitrine.userProducts = Vitrine.getUserData()
+        let userProducts = Vitrine.getUserData()
 
-        const product = Vitrine.userProducts.find(product => product.id === id)
+        const product = userProducts.find(product => product.products.id === id)
 
         if(product.quantity > 1){
             product.quantity--
-            Vitrine.setUserData(Vitrine.userProducts)
+            Vitrine.setUserData(userProducts)
         }else{
-            for(let i = 0; i < Vitrine.userProducts.length; i++){
-                if(Vitrine.userProducts[i] === product){
-                    Vitrine.userProducts.splice(i, 1);
+            for(let i = 0; i < userProducts.length; i++){
+                if(userProducts[i] === product){
+                    userProducts.splice(i, 1);
                 }
             }
     
-            Vitrine.setUserData(Vitrine.userProducts)
+            Vitrine.setUserData(userProducts)
             const li = e.target.closest("li")
             li.remove()
         }
 
-        Vitrine.cartInfos(Vitrine.userProducts)
+        API.removeFromCart(id)
+        Vitrine.cartInfos(userProducts)
     }
 }
