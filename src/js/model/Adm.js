@@ -10,6 +10,12 @@ export class Adm {
         descricao: ''
     };
 
+    static dataRegisterAdmin = {
+        name: '',
+        email: '',
+        password: ''
+    };
+
     static getInfosNewProduct(){
 
         const form = document.getElementById('cadastroProduto');
@@ -53,5 +59,30 @@ export class Adm {
 
     };
 
+    static registerAdmin(){
 
+        const formReg = document.getElementById('registerForm');
+
+        formReg.addEventListener('submit', (event) => {
+            event.preventDefault()
+
+            for(let i = 0; i < event.target.children.length; i++){
+
+                if(event.target.children[i].type !== 'submit'){
+
+                    const key   = event.target.children[i].name;
+                    const value = event.target.children[i].value;
+
+                    this.dataRegisterAdmin[key] = value;
+                }
+            }
+
+            this.regNewAdmin();
+        })
+    };
+
+    static regNewAdmin(){
+
+        API.register(this.dataRegisterAdmin);
+    };
 }
