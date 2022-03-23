@@ -185,8 +185,8 @@ export class Vitrine {
                                         
                         <div class="dados-line" >
                             <h4>${nome}</h4>
-                            <div class="trash-can-background" >
-                                <i class="fa-solid fa-trash-can"></i>
+                            <div class="trash-can-background" id="${id}" >
+                                <i class="fa-solid fa-trash-can" ></i>
                             </div>
                         </div>
                         ${categories()}
@@ -198,10 +198,16 @@ export class Vitrine {
                     `
                 ul.appendChild(li)
             }
-            })
-            Vitrine.cartInfos(cartProducts)
-    }
+        })
 
+        const deleteButtons = document.querySelectorAll(".trash-can-background")
+        deleteButtons.forEach((button) => {
+
+            button.addEventListener( "click", Vitrine.removeItem)
+        })
+
+        Vitrine.cartInfos(cartProducts)
+    }
 
     static cartInfos(cartProducts){
         const quantity = document.querySelector(".cartPopupQntTotal")
@@ -212,13 +218,41 @@ export class Vitrine {
         cartProducts.forEach((product) => {
             
             totalItens += product.quantity
-            totalCash += product.preco
+            totalCash += product.preco * product.quantity
         })
 
         let priceString = totalCash.toString()
         let price = priceString.replace(".", ",")
-        
+
         quantity.innerHTML = `<span>${totalItens}</span>`
         cash.innerHTML = `<p class="sifrao" >R$</p><span>${price}</span>`
+    }
+
+    static removeItem(e){
+
+        let id = Number(e.target.id)
+        if(id === 0){
+            id = Number(e.target.parentNode.id)
+        }
+        Vitrine.userProducts = Vitrine.getUserData()
+
+        const product = Vitrine.userProducts.find(product => product.id === id)
+
+        if(product.quantity > 1){
+            product.quantity--
+            Vitrine.setUserData(Vitrine.userProducts)
+        }else{
+            for(let i = 0; i < Vitrine.userProducts.length; i++){
+                if(Vitrine.userProducts[i] === product){
+                    Vitrine.userProducts.splice(i, 1);
+                }
+            }
+    
+            Vitrine.setUserData(Vitrine.userProducts)
+            const li = e.target.closest("li")
+            li.remove()
+        }
+
+        Vitrine.cartInfos(Vitrine.userProducts)
     }
 }
