@@ -132,20 +132,16 @@ export class Vitrine {
             Vitrine.userProducts = [] 
         }
             
-        const produto = products.find(product => product.id === id)
-        const existe  = Vitrine.userProducts.find( element => element.id == produto.id)
+        const product = products.find(product => product.id === id)
+        const exists  = Vitrine.userProducts.find( element => element.id == product.id)
 
-        if(existe){
-            existe.quantity += 1
+        if(exists){
+            exists.quantity += 1
         }
         else {
-            produto.quantity = 1
-            Vitrine.userProducts.push(produto)
+            product.quantity = 1
+            Vitrine.userProducts.push(product)
         }
-
-        console.log(Vitrine.userProducts)
-
-
 
         Vitrine.setUserData(Vitrine.userProducts)
 
@@ -203,9 +199,26 @@ export class Vitrine {
                 ul.appendChild(li)
             }
             })
-            
-    
-
+            Vitrine.cartInfos(cartProducts)
     }
 
+
+    static cartInfos(cartProducts){
+        const quantity = document.querySelector(".cartPopupQntTotal")
+        const cash = document.querySelector(".cartPopupTotalValor")
+
+        let totalItens = 0
+        let totalCash = 0
+        cartProducts.forEach((product) => {
+            
+            totalItens += product.quantity
+            totalCash += product.preco
+        })
+
+        let priceString = totalCash.toString()
+        let price = priceString.replace(".", ",")
+        
+        quantity.innerHTML = `<span>${totalItens}</span>`
+        cash.innerHTML = `<p class="sifrao" >R$</p><span>${price}</span>`
+    }
 }
