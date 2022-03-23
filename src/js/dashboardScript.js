@@ -15,6 +15,25 @@ fecharCadastroButton.addEventListener("click", () => {
     cadastroProdutoModal.classList.add("displayNone")
 })
 
+const botao = document.getElementById("bebida")
+const div    = document.getElementById("alert")
+
+botao.addEventListener("click", () => {
+    div.classList.add("show")
+    div.classList.remove("displayNone")
+    div.classList.add("showAlert")
+    setTimeout( () => {
+        div.classList.remove("show")
+        div.classList.add("displayNone")
+    }, 3000)
+})
+
+
+
+
+
+
+
 class Filtros {
 
     static async filtrarNome(input){
