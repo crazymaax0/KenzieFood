@@ -12,24 +12,40 @@
 <body>
 
     <main>
-        <form action="">
-            <input type="email" name="email" placeholder="Email">
-            <input type="password" name="senha" id="" placeholder="Senha">
-            <input type="submit" value="enviar">
-        </form>
+
+        <div class="formAlign" >
+
+            <form action="" class="loginForm " id="loginForm">
+                <input type="email" name="email" placeholder="Email" autocomplete="off">
+                <input type="password" name="senha" id="" placeholder="Senha" autocomplete="off">
+                <input type="submit" value="enviar">
+            </form>
+
+            <form action="" class="registerForm displayNone" id="registerForm">
+                <input type="text" name="name" placeholder="Name" autocomplete="off">
+                <input type="email" name="email" placeholder="Email" autocomplete="off">
+                <input type="password" name="senha" id="" placeholder="Senha" autocomplete="off">
+                <input type="submit" value="cadastrar">
+            </form>
+
+        </div>
         
         <div class="choose" >
-            <div class="login" >
-
+            
+            <div class="login color" id="login">
+                <i class="fa-regular fa-user"></i>
+                <h3>Login</h3>
             </div>
 
-            <div class="register">
-
+            <div class="register" id="register">
+                <i class="fa-solid fa-square-pen"></i>
+                <h3>Registrar</h3>
             </div>
         </div>
 
     </main>
 
-    <script src="./src/js/loginScript.js"></script>
+    <script src="https://kit.fontawesome.com/94fc682ddb.js" crossorigin="anonymous"></script>
+    <script type="module" src="./src/js/loginScript.js"></script>
 </body>
 </html>

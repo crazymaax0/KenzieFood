@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body{
     width: 100vw;
     height: 100vh;
@@ -13,27 +17,161 @@ body{
 main {
     width: 300px;
     height: 450px;
-    background-color: black;
     position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #F8F9FA;
+    border: 1px solid black;
+    box-shadow: 0px 0px 30px 6px rgba(0,0,0,0.2);
+}
+
+.formAlign {
+    width: 100%;
+    height: calc(100% - 100px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0px;
+}
+
+.formAlign form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formAlign form input[type="text"] {
+    width: 220px;
+    height: 38px;
+
+    margin-bottom: 15px;
+    padding-left: 12px;
+    
+    border: none;
+    border-bottom: 1px solid #868E96;
+    background-color: transparent;
+}
+
+.formAlign form input[type="email"] {
+    width: 220px;
+    height: 38px;
+
+    padding-left: 12px;
+    
+    border: none;
+    border-bottom: 1px solid #868E96;
+    background-color: transparent;
+}
+
+.formAlign form input[type="password"] {
+    width: 220px;
+    height: 38px;
+
+    margin-top: 15px;
+    padding-left: 12px;
+    
+    border: none;
+    border-bottom: 1px solid #868E96;
+    background-color: transparent;
+}
+
+.formAlign form input[type="submit"] {
+    width: 220px;
+    height: 38px;
+
+    margin-top: 35px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    
+    border: none;
+    border-radius: 32px;
+    background-color: #FF2253;
+}
+
+.formAlign form input[type="email"]:focus {
+    border: none;
+    border-bottom: 1px solid #868E96;
+}
+
+.formAlign form input[type="password"]:focus {
+    border: none;
+    border-bottom: 1px solid #868E96;
 }
 
 .choose {
     width: 100%;
-    height: 150px;
+    height: 100px;
     position: absolute; 
     bottom: 0px;
     display: flex;
+
+    border-top: 1px solid black;
 }
 
 .login, .register {
     width: 50%;
     height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: #F8F9FA;
+}
+
+.login:hover, .register:hover {
+    cursor: pointer;
+}
+
+.formAlign form input[type="submit"]:hover {
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .login {
-    background-color: red;
+    font-size: 1.3rem;
 }
 
 .register {
-    background-color: blue;
+    font-size: 1.3rem;
+}
+
+.login i {
+    margin-bottom: 5px;
+    font-size: 1.7rem;
+}
+
+.register i{
+    margin-bottom: 5px;
+    font-size: 1.7rem;
+}
+
+
+
+
+
+
+.displayNone {
+    display: none !important;
+}
+
+.color {
+    background-color: #FF2253;
+    color: white;
+}
+
+.noColor {
+    background-color: transparent;
 }
