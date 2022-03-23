@@ -2,6 +2,16 @@ import { API } from "./API.js";
 
 export class Vitrine {
 
+    static getUserData(){
+        const colectInfo = window.localStorage.getItem("userData")
+        return JSON.parse(colectInfo)
+    }
+
+    static setUserData(value){
+        const dataJSON = JSON.stringify(value)
+        window.localStorage.setItem("userData", dataJSON)
+    }
+
     static async createHomePageProducts(){
         const products = await API.products()
         const adminproducts = await API.adminProducts()
@@ -13,7 +23,7 @@ export class Vitrine {
     static createCard(productArray) {
         const ul = document.querySelector(".cont-products")
         
-        productArray.forEach(({categoria, descricao, imagem, nome, preco}) => {
+        productArray.forEach(({categoria, descricao, id, imagem, nome, preco}) => {
 
             function categories(){
 
@@ -49,14 +59,23 @@ export class Vitrine {
                 <div class="buy">
                     <span>R$ ${price}</span>
                     
-                    <div class="cont-icon-add-to-cart">
+                    <div class="cont-icon-add-to-cart" id="${id}">
                         
                     </div>
                 </div>
                 
             `
+
+            
             ul.appendChild(li)
         })
+
+        const buyButtons = document.querySelectorAll(".cont-icon-add-to-cart")
+        buyButtons.forEach((button) => {
+
+            button.addEventListener( "click", Vitrine.addToCart)
+        })
+
     }
 
     static async createAdminPageProducts() {
@@ -98,6 +117,76 @@ export class Vitrine {
             `
             tbody.appendChild(tr)
         })
+    }
+
+    static async addToCart(e){
+
+        const id = e.target.id
+
+        await API.addToCart(id)
+
+        Vitrine.createCartProducts() 
+    }
+
+    static async createCartProducts() {
+
+        const products = await API.cart()
+        this.setUserData(products)
+
+        Vitrine.createCartCard()
+    }
+
+    static createCartCard() {
+
+        const cartProducts = Vitrine.getUserData()
+
+        const ul = document.getElementById("cartUl")
+        ul.innerHTML = ""
+
+        cartProducts.forEach((product) => {
+            
+            const {products:{categoria, imagem, nome, preco}, quantity} = product
+    
+            function categories() {
+    
+                const subcategories = categoria.split(" ")
+                let result = ""
+    
+                for (let i = 0; i < subcategories.length; i++) {
+                    result += `<p>${subcategories[i]}</p>`
+                }
+    
+                return result
+    
+            }
+    
+            let priceString = preco.toString()
+            let price = priceString.replace(".", ",")
+    
+            const li = document.createElement("li")
+            li.innerHTML = `
+                <div>
+                    <img src="${imagem}" alt="${nome}">
+                </div>
+        
+                <div class="dados" > 
+                                    
+                    <div class="dados-line" >
+                        <h4>${nome}</h4>
+                        <div class="trash-can-background" >
+                            <i class="fa-solid fa-trash-can"></i>
+                        </div>
+                    </div>
+                    ${categories()}
+        
+                    <div class="dadosTotalValor" >
+                        <h5>R$</h5><span>${price}</span>
+                    </div>
+                </div>
+                `
+            ul.appendChild(li)
+        })
+
     }
 
 }
