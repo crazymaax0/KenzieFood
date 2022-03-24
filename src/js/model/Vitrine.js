@@ -22,12 +22,12 @@ export class Vitrine {
             /* CRIAR O ELEMENTO "PARA DASHBOARD" NO HEADER, QUE SOMENTE APARECE QUANDO O TOKEN É O DO ADM */
         }
 
-        this.createCard(adminproducts)     
+        Vitrine.createCard(adminproducts)     
     }
 
     static createCard(productArray) {
         const ul = document.querySelector(".cont-products")
-        
+        ul.innerHTML=""
         productArray.forEach(({categoria, descricao, id, imagem, nome, preco}) => {
 
             function categories(){
@@ -81,10 +81,10 @@ export class Vitrine {
 
     }
 
-    static async createAdminPageProducts() {
-        const products = await API.adminProducts()
+    static async createAdminPageProducts(products) {
+        // const products = await API.adminProducts()
         const tbody = document.querySelector("tbody")
-
+        tbody.innerHTML = ""
         products.forEach(({ id, categoria, descricao, imagem, nome}) => {
             function categories() {
 
@@ -260,7 +260,7 @@ export class FiltrosVitrine {
 
     static async filtrarNome(input){
         
-        const products = await API.products()
+        const products = await API.adminProducts()
 
         let search = products.filter(function(produto){
 
@@ -273,17 +273,25 @@ export class FiltrosVitrine {
             }
         })
         
-        for(let i = 0; i < search.length; i++){
-            console.log(search[i])
-        }  
-
         return search
+        
+    }
+    
+    static async filtrarPesquisaHomePage(input) {
+        const array = await this.filtrarNome(input)
+        
+        Vitrine.createCard(array)
+    }
+
+    static async filtrarPesquisaDashBoard(input) {
+        const array = await this.filtrarNome(input)
+        
+        Vitrine.createAdminPageProducts(array)
     }
 
     static async filtrarCategoria(id){
         
-        const products = await API.products()
-
+        const products = await API.adminProducts()
 
         let search = products.filter(function(produto){
 
@@ -297,11 +305,24 @@ export class FiltrosVitrine {
         })
 
         return search
+        
+    }
+
+    static async filtrarCategoriaHomePage(input) {
+        const array = await this.filtrarCategoria(input)
+        
+        Vitrine.createCard(array)
+    }
+
+    static async filtrarCategoriaDashBoard(input) {
+        const array = await this.filtrarCategoria(input)
+        
+        Vitrine.createAdminPageProducts(array)
     }
     
 }
 
-export class FiltrosDash {
+/* export class FiltrosDash {
 
     static async filtrarNome(input){
         
@@ -339,4 +360,4 @@ export class FiltrosDash {
         return search
     }
     
-}
+} */

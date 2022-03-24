@@ -1,9 +1,10 @@
 import { API } from "./model/API.js";
-import { Vitrine } from "./model/Vitrine.js";
-import { FiltrosDash } from "./model/Vitrine.js";
+import { FiltrosVitrine, Vitrine } from "./model/Vitrine.js";
+// import { FiltrosDash } from "./model/Vitrine.js";
 import { Adm } from "./model/Adm.js"
 
-Vitrine.createAdminPageProducts()
+const products = await API.adminProducts()
+Vitrine.createAdminPageProducts(products)
 
 const add                   = document.getElementById("add")
 const cadastroProdutoModal  = document.getElementById("cadastroProduto")
@@ -31,6 +32,14 @@ botao.addEventListener("click", () => {
     }, 3000)
 })
 
+const btnTodos = document.getElementById('Todos');
+
+btnTodos.addEventListener('click', async () => {
+
+    const products = await API.adminProducts()
+    Vitrine.createAdminPageProducts(products)
+  
+})
 
 const campoBuscaNome = document.querySelector("#pesqNome")
 
@@ -38,7 +47,7 @@ campoBuscaNome.addEventListener("keyup", function(){
 
     const value = campoBuscaNome.value
     
-    let resposta = FiltrosDash.filtrarNome(value)
+    let resposta = FiltrosVitrine.filtrarPesquisaDashBoard(value)
 
     return resposta
 })
@@ -50,7 +59,7 @@ btnPanificadora.addEventListener('click', function(){
 
     const value = btnPanificadora.id
         
-    let resposta = FiltrosDash.filtrarCategoria(value)
+    let resposta = FiltrosVitrine.filtrarCategoriaDashBoard(value)
 
     return resposta
 })
@@ -61,7 +70,7 @@ btnFrutas.addEventListener('click', function(){
 
     const value = btnFrutas.id
         
-    let resposta = FiltrosDash.filtrarCategoria(value)
+    let resposta = FiltrosVitrine.filtrarCategoriaDashBoard(value)
 
     return resposta
 })
@@ -72,7 +81,7 @@ btnBebidas.addEventListener('click', function(){
 
     const value = btnBebidas.id
         
-    let resposta = FiltrosDash.filtrarCategoria(value)
+    let resposta = FiltrosVitrine.filtrarCategoriaDashBoard(value)
 
     return resposta
 })
