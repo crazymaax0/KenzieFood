@@ -107,6 +107,7 @@ export class API {
 
     static async deleteProduct(id) {
 
+        
         const response = await fetch(this.url + "/my/products/" + `${id}`, {
             "method": "DELETE",
             "headers": {
@@ -114,8 +115,7 @@ export class API {
                 "Authorization": `Bearer ${this.token}`
             }
         })
-
-        const data = await response.json()
+        const data = response.status
         
         return data
     }

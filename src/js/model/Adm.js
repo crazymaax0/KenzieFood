@@ -1,4 +1,5 @@
 import { API } from "./API.js";
+import { Vitrine } from "./Vitrine.js";
 
 export class Adm {
 
@@ -217,7 +218,18 @@ export class Adm {
             }, 3000)
 
             cadastroProdutoModal.classList.add("displayNone")
+        }
+    }
 
+    static async remove(e){
+               
+        const removeToken = await API.deleteProduct(e)
+
+        console.log(removeToken)
+
+        if(removeToken === 204){
+
+            window.location = "../../../dashboard.html"
         }
 
     }
