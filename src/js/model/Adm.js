@@ -41,6 +41,7 @@ export class Adm {
         }
         console.log(userInfos)
         const loginToken = await API.login(userInfos)
+        console.log(loginToken)
 
         if(loginToken === 404 || loginToken === 401){
             /* CRIAR VIA DOM UM POPUP OU MENSAGEM QUE DIZ QUE DEU RUIM */
@@ -59,9 +60,9 @@ export class Adm {
 
                 localStorage.setItem('infosAdmin', JSON.stringify(dataAdmin))
 
-                window.location = "../../../index.html"
+                // window.location = "../../../index.html"
             }else{
-                window.location = "../../../index.html"
+                // window.location = "../../../index.html"
 
                 console.log(loginToken);
             }
@@ -162,6 +163,8 @@ export class Adm {
             imagem: imagem,
             descricao: descricao
         };
+        const subcategories = categoria.split(" ")
+        console.log(subcategories)
 
         for(let i = 0; i < form.children.length; i++){
             if(form.children[i].tagName === 'INPUT'){
@@ -172,11 +175,21 @@ export class Adm {
                 for(let j = 0; j < form.children[i].children.length; j++){
                     if(form.children[i].children[j].tagName === 'INPUT'){
                         const key   = form.children[i].children[j].name;
-                        if(form.children[i].children[j].hasAttribute("categoria")){
-                            console.log(form.children[i].children[j])
+
+                        console.log(form.children[i].children[j].id)
+                        console.log(dataRegisterProducts)
+
+                        for(let k = 0; k < subcategories.length; k++){
+                            if(subcategories[k] === form.children[i].children[j].id){
+                                console.log(form.children[i].children[j])
+
+                            }
+                        }
+
+                        /* if(subcategories[i] === form.children[i].children[j].id){
                             form.children[i].children[j].checked = true
                             
-                        }
+                        } */
                     }
                 }
 
