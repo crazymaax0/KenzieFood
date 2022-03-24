@@ -130,6 +130,7 @@ main nav button:last-child{
 #add{
     color: #ffffff;
     background-color: #FF2253;
+    margin-left: 35px;
 }
 
 main nav button:first-child{
@@ -184,6 +185,20 @@ main nav button:hover{
     top: 5rem;  */
     border-radius: 12px;
     background-color: #F8F9FA;
+}
+
+.formPopup::-webkit-scrollbar{
+    width: 12px;
+}
+
+.formPopup::-webkit-scrollbar-track{
+    background-color: #ffffff;
+}
+
+.formPopup::-webkit-scrollbar-thumb{
+    background-color: #FF2253;
+    border-radius: 15px;
+    border: 3px solid #ffffff;
 }
 
 .cadastroBackGround {
@@ -274,10 +289,6 @@ main nav button:hover{
     padding-top: 0px;
 }
 
-.formBody .descricao::placeholder {
-
-}
-
 .formBody .containerCategorias {
     display: flex;
     justify-content: space-between;
@@ -305,6 +316,73 @@ main nav button:hover{
     /* border: 1.5px solid #DEE2E6; */
     border-radius: 32px;
     background: #F8F9FA;
+}
+
+.categoriasMain {
+    height: 40px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #868E96 !important;
+
+}
+
+.categoriasMainBtt {
+    height: 48px;
+    padding: 0px 20px 0px 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 32px;
+    background: #F8F9FA;
+
+}
+
+.categoriasMainBtt:hover {
+    cursor: pointer;
+}
+
+.todos {
+    padding: 0px 20px 0px 20px !important;
+    color: #212529;
+}
+
+.panificadora{
+    background-image: url(../img/burguer.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 9px;
+    padding-left: 35px;
+    margin-left: 15px;
+    color: #212529;
+}
+
+.frutas{
+    background-image: url(../img/fritas.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 9px;
+    padding-left: 35px;
+    margin-left: 15px;
+    color: #212529;
+}
+
+.bebidas{
+    background-image: url(../img/refri.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 9px;
+    padding-left: 35px;
+    margin-left: 15px;
+    color: #212529;
 }
 
 .categorias:hover {
@@ -373,6 +451,11 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked + .categorias {
+    color: white !important;
+    background-color: #FF2253;
+}
+
+input[type="radio"]:checked + .categoriasMainBtt {
     color: white !important;
     background-color: #FF2253;
 }
@@ -665,6 +748,17 @@ td img{
 
     border-radius:0px 0px 8px 8px;
     background-color: #39DF8F;
+}
+
+.red {
+    width: 100%;
+    height: 8px;
+
+    position: absolute;
+    bottom: 0px;
+
+    border-radius:0px 0px 8px 8px;
+    background-color: #FF2253;
 }
 
 .alert.showAlert{

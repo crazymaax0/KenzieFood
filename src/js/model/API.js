@@ -1,3 +1,5 @@
+import { Adm } from "./Adm.js"
+
 export class API {
 
     static url = "https://kenzie-food-api.herokuapp.com"
@@ -81,6 +83,8 @@ export class API {
         })
 
         const data = await response.json()
+
+        Adm.showAlerts(response.status)
         
         return data
     }
@@ -149,19 +153,15 @@ export class API {
         return data
     }
 
-    // static async removeFromCart(id) {
+    static async removeFromCart(id) {
 
-    //     const response = await fetch(this.url + "/cart/remove/" + `${id}`,{
-    //         "method": "DELETE",
-    //         "headers": {
-    //             "Content-Type": "application/json",
-    //             "Authorization": `Bearer ${this.token}`
-    //         }
-    //     })
-
-    //     const data = await response.json()
-        
-    //     return data
-    // }
+        const response = await fetch(this.url + "/cart/remove/" + `${id}`,{
+            "method": "DELETE",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${this.token}`
+            }
+        })
+    }
 
 }
