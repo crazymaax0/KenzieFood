@@ -626,7 +626,7 @@ aside h4 {
 @media screen and (max-width: 360px){
     
     aside{
-        width: 360px;
+
     }
     
     .header-page{
@@ -638,12 +638,30 @@ aside h4 {
         justify-content: space-between;
     }
 
+    /* main {
+        background-color: #FF2253;
+    } */
+
+
+}
+
+@media screen and (max-width: 580px){
+    .infosAside {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pages {
+        margin-bottom: 15px;
+    }
 }
 
 @media screen and (min-width: 768px){
     /* body{
         width: 755px;
     } */
+
+
 
     .header-page .logo h1{
         margin-right: 7px;
