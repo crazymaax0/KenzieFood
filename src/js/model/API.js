@@ -93,10 +93,7 @@ export class API {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${this.token}`
             },
-            "body": JSON.stringify({
-                "nome" : `${product}`
-            }
-            )
+            "body": JSON.stringify(product)
         })
 
         const data = await response.json()

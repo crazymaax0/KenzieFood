@@ -128,4 +128,49 @@ export class Adm {
 
     };
 
+    static async editProduct(id){
+
+        const adminproducts = await API.adminProducts()
+
+        const product = adminproducts.find((item) => item.id === Number(id))
+        
+        const {categoria, descricao, imagem, nome, preco} = product
+
+        const formDisplay = document.getElementById('edicaoProduto');
+        formDisplay.classList.remove("displayNone")
+
+        const form = formDisplay.children[0].children[1]
+        
+        const dataRegisterProducts = {
+            nome: nome,
+            preco: preco,
+            categoria: categoria,
+            imagem: imagem,
+            descricao: descricao
+        };
+
+        for(let i = 0; i < form.children.length; i++){
+            if(form.children[i].tagName === 'INPUT'){
+                const key   = form.children[i].name;
+                form.children[i].value = dataRegisterProducts[key]
+            }
+            if(form.children[i].tagName === 'DIV'){
+                for(let j = 0; j < form.children[i].children.length; j++){
+                    if(form.children[i].children[j].tagName === 'INPUT'){
+                        const key   = form.children[i].children[j].name;
+                        if(form.children[i].children[j].hasAttribute("categoria")){
+                            console.log(form.children[i].children[j])
+                            form.children[i].children[j].checked = true
+                            
+                        }
+                    }
+                }
+
+                
+            }
+        }
+        
+
+
+    }
 }

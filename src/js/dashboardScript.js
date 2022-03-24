@@ -9,6 +9,15 @@ Vitrine.createAdminPageProducts(products)
 const add                   = document.getElementById("add")
 const cadastroProdutoModal  = document.getElementById("cadastroProduto")
 const fecharCadastroButton  = document.getElementById("fecharCadastro")
+const editButton            = document.querySelectorAll("#editar")
+
+
+for(let i of editButton){
+    i.addEventListener('click', (e) => {
+        const productID = e.target.parentNode.id
+        Adm.editProduct(productID)
+    })
+  }
 
 add.addEventListener("click", () => {
     cadastroProdutoModal.classList.remove("displayNone")
