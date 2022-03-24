@@ -41,16 +41,28 @@ export class Adm {
         console.log(userInfos)
         const loginToken = await API.login(userInfos)
 
-        if(loginToken === 404){
+        if(loginToken === 404 || loginToken === 401){
             /* CRIAR VIA DOM UM POPUP OU MENSAGEM QUE DIZ QUE DEU RUIM */
+
+
         }else{
 
             Adm.setUserInfo(loginToken)
 
-            if(loginToken === API.token){
-                window.location = "../../../dashboard.html"
+            if(userInfos.email === 'equipe4@gmail.com'){
+
+                const dataAdmin = {
+                    email: 'equipe4@gmail.com',
+                    senha: 123
+                }
+
+                localStorage.setItem('infosAdmin', JSON.stringify(dataAdmin))
+
+                window.location = "../../../index.html"
             }else{
                 window.location = "../../../index.html"
+
+                console.log(loginToken);
             }
         }
         

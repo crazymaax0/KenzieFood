@@ -47,6 +47,36 @@ body{
     color: #FF2253;
 }
 
+.header-page .infosAside{
+    display: flex;
+}
+
+.header-page .infosAside a{
+    text-decoration: none;
+    padding: 15px;
+    color: #ffffff;
+    background-color: #FF2253;
+    border-radius: 10px;
+}
+
+.header-page .infosAside a:first-child{
+    margin-right: 15px;
+}
+
+.header-page .infosAside a:last-child{
+    margin-left: 15px;
+}
+
+.hideBtn{
+    display: none;
+}
+
+.header-page .pages{
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
 .header-page .search input{
     width: 342px;
     height: 49px;

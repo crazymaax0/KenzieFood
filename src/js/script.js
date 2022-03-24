@@ -1,5 +1,30 @@
 import { Vitrine } from "./model/Vitrine.js";
 import {FiltrosVitrine} from "./model/Vitrine.js"
+import { Adm } from "./model/Adm.js"
+
+if(localStorage.getItem('infosAdmin') === null){
+  hideBtnDashboard()
+
+}
+
+function hideBtnDashboard(){
+
+  const btnDashboard = document.getElementById('btnDashboard');
+
+  btnDashboard.classList.add('hideBtn')
+
+}
+
+const btnLogout = document.getElementById('btnLogout');
+
+btnLogout.addEventListener('click', () => {
+  removeInfoAdminLocalStorage()
+})
+
+function removeInfoAdminLocalStorage(){
+
+  localStorage.removeItem('infosAdmin')
+}
 
 document.getElementById("abrirCarrinho").addEventListener( "click", () => {
   document.getElementById("cartPopupBackGround").classList.remove("displayNone")
