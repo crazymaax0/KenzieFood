@@ -98,7 +98,10 @@ const excluirProdutoModal  = document.getElementById("excluirProduto")
 const fecharExcluirButton  = document.getElementById("fecharExcluir")
 const fecharNãoButton      = document.querySelector(".deleteBtt--nao")
 
-const btnRemoveProduct = document.querySelectorAll('.btts--td')
+const btnRemoveProduct = document.querySelectorAll('#deletar')
+const btnConfirmRemove = document.querySelector('.deleteBtt--sim')
+
+let idRemocao = 0
 
 fecharExcluirButton.addEventListener("click", () => {
     excluirProdutoModal.classList.add("displayNone")
@@ -117,11 +120,12 @@ for (let i = 0; i < btnRemoveProduct.length; i++){
     
     btnRemoveProduct[i].addEventListener('click', function(){
 
-        const value = btnRemoveProduct[i].id
+        const value = btnRemoveProduct[i].parentElement.id
 
-        return value
-    
+        idRemocao = value
     }
 
-    
+
 )}
+
+btnConfirmRemove.addEventListener("click", () => Adm.remove(idRemocao))

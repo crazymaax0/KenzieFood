@@ -1,4 +1,5 @@
 import { API } from "./API.js";
+import { Vitrine } from "./Vitrine.js";
 
 export class Adm {
 
@@ -129,8 +130,14 @@ export class Adm {
     };
 
     static async remove(e){
-        e.preventDefault()
-        
+               
+        API.deleteProduct(e)
+
+        const excluirProdutoModal  = document.getElementById("excluirProduto")
+
+        excluirProdutoModal.classList.add("displayNone")
+
+        window.location = "../../../dashboard.html"
     }
 
 }
