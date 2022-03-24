@@ -190,7 +190,7 @@ export class Vitrine {
                         ${categories()}
             
                         <div class="dadosTotalValor" >
-                            <h5>R$</h5><span>${price}</span>
+                            <div><span>${quantity}</span><h5>X</h5></div> <div><h5>R$</h5><span>${price}</span></div> 
                         </div>
                     </div>
                     `
