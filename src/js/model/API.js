@@ -13,6 +13,10 @@ export class API {
             "body": JSON.stringify(user)
         })
 
+        if(response.status === 404){
+            return response.status
+        }
+
         const data = await response.json()
         
         return data
@@ -28,8 +32,12 @@ export class API {
             "body": JSON.stringify(user)
         })
 
+        if(response.status === 404){
+            return response.status
+        }
+
         const data = await response.json()
-        
+
         return data
     }
 
