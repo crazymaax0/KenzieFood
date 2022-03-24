@@ -190,7 +190,7 @@ export class Vitrine {
                         ${categories()}
             
                         <div class="dadosTotalValor" >
-                            <div><span>${quantity}</span><h5>X</h5></div> <div><h5>R$</h5><span>${price}</span></div> 
+                            <div id="itemQuantidade"><span>${quantity}</span><h5>X</h5></div> <div><h5>R$</h5><span>${price}</span></div> 
                         </div>
                     </div>
                     `
@@ -238,6 +238,8 @@ export class Vitrine {
 
         if(product.quantity > 1){
             product.quantity--
+            const itemQuantidade = document.getElementById("itemQuantidade")
+            itemQuantidade.innerHTML = `<span>${product.quantity}</span><h5>X</h5>`
             Vitrine.setUserData(userProducts)
         }else{
             for(let i = 0; i < userProducts.length; i++){
@@ -249,9 +251,9 @@ export class Vitrine {
             Vitrine.setUserData(userProducts)
             const li = e.target.closest("li")
             li.remove()
+            API.removeFromCart(id)
         }
-
-        API.removeFromCart(id)
+        
         Vitrine.cartInfos(userProducts)
     }
 }
