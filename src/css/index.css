@@ -359,9 +359,23 @@ aside h4 {
 
 #cartUl {
     max-width: 100%;
-    height: 100%;
-
+    height: 381px;
+    overflow-x: scroll;
     padding: 19px 10px 0px 10px;
+}
+
+#cartUl::-webkit-scrollbar{
+    width: 10px;
+}
+
+#cartUl::-webkit-scrollbar-track{
+    background-color: #ffffff;
+}
+
+#cartUl::-webkit-scrollbar-thumb{
+    background-color: #FF2253;
+    border-radius: 15px;
+    border: 3px solid #ffffff;
 }
 
 #cartUl li {
