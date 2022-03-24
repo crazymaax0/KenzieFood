@@ -125,6 +125,7 @@ export class Adm {
     static regNewProduct(){
 
         API.newProduct(this.dataRegisterProducts);
+        
 
     };
 

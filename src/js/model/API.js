@@ -81,7 +81,9 @@ export class API {
         })
 
         const data = await response.json()
-        
+        console.log(response.status)
+        // 400 error
+        // 201 deu
         return data
     }
 

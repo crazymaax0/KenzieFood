@@ -63,7 +63,7 @@ body{
 
 /* ===== MAIN ===== */
 main{ 
-    height: 510px;
+    height: 410px;
     padding: 0 18px;
     overflow-x: scroll;
 }
@@ -464,13 +464,16 @@ aside h4 {
     color: #212529;
 
     display: flex;
-    justify-content: space-around;
     flex-wrap: nowrap;
 }
 
     .dadosTotalValor div {
         display: flex;
         flex-direction: row;
+    }
+
+    .dadosTotalValor div:first-child {
+        margin-right: 25px;
     }
 
     .dados h5 {
@@ -712,7 +715,6 @@ aside h4 {
     .cartPopupBody{
         min-height: 296px;
         height: 405px;
-        overflow-y: scroll;
     }
 
 
