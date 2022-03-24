@@ -124,6 +124,69 @@ nav{
     overflow-x: scroll;
 }
 
+.categorias {
+
+    height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px 0px 0px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #212529 !important;
+
+    border: none;
+    /* border: 1.5px solid #DEE2E6; */
+    border-radius: 32px;
+    background: #F8F9FA;
+}
+
+.todos {
+    padding: 0px 20px 0px 20px !important;
+}
+
+.categorias:hover {
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + .categorias {
+    color: white !important;
+    background-color: #FF2253;
+}
+
+.panificadora{
+    background-image: url(../img/burguer.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 9px;
+    padding-left: 35px;
+    margin-left: 15px;
+}
+
+.frutas{
+    background-image: url(../img/fritas.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 9px;
+    padding-left: 35px;
+    margin-left: 15px;
+}
+.bebidas{
+    background-image: url(../img/refri.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 9px;
+    padding-left: 35px;
+    margin-left: 15px;
+}
+
 nav::-webkit-scrollbar{
     width: 342px;
     height: 10px;
@@ -166,28 +229,6 @@ nav button:hover{
     cursor: pointer;
 }
 
-#Panificadora{
-    background-image: url(../img/burguer.png);
-    background-repeat: no-repeat;
-    background-size: 20px;
-    background-position: 9px;
-    padding-left: 35px;
-}
-
-#Frutas{
-    background-image: url(../img/fritas.png);
-    background-repeat: no-repeat;
-    background-size: 20px;
-    background-position: 9px;
-    padding-left: 35px;
-}
-#Bebidas{
-    background-image: url(../img/refri.png);
-    background-repeat: no-repeat;
-    background-size: 20px;
-    background-position: 9px;
-    padding-left: 35px;
-}
 /* ========== */
 
 /* ===== CARD PRODUCTS ===== */

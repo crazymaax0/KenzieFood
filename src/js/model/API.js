@@ -1,3 +1,5 @@
+import { Adm } from "./Adm.js"
+
 export class API {
 
     static url = "https://kenzie-food-api.herokuapp.com"
@@ -81,9 +83,9 @@ export class API {
         })
 
         const data = await response.json()
-        console.log(response.status)
-        // 400 error
-        // 201 deu
+
+        Adm.showAlerts(response.status)
+        
         return data
     }
 
@@ -95,10 +97,7 @@ export class API {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${this.token}`
             },
-            "body": JSON.stringify({
-                "nome" : `${product}`
-            }
-            )
+            "body": JSON.stringify(product)
         })
 
         const data = await response.json()

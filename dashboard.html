@@ -39,14 +39,19 @@
         <nav>
             
             <div>
-                <ul>
+                <ul class="categoriasMain" >
 
-                    <button id="Todos">Todos</button>
-                    <button id="Panificadora">Hamburguers</button>
-                    <button id="Frutas">Acompanhamentos</button>
-                    <button id="Bebidas">Bebidas</button>
-                    <button id="add">Adicionar novo produto</button>
+                    <input type="radio" name="categoria" id="Todos" checked>
+                    <label class="categoriasMainBtt todos" for="Todos" >Todos</label>
+                    <input type="radio" name="categoria" id="Panificadora">
+                    <label class="categoriasMainBtt panificadora" for="Panificadora" >Hamburguers</label>
+                    <input type="radio" name="categoria" id="Frutas">
+                    <label class="categoriasMainBtt frutas" for="Frutas" >Acompanhamentos</label>
+                    <input type="radio" name="categoria" id="Bebidas">
+                    <label class="categoriasMainBtt bebidas" for="Bebidas" >Bebidas</label>
                     
+                    <button id="add">Adicionar novo produto</button>
+
                 </ul>
             </div>
 
@@ -126,7 +131,7 @@
 
                     <h3>Edição de produto</h3>                
 
-                    <div class="fa-xContainer" id="" >
+                    <div class="fa-xContainer" id="fecharEdicaoButton" >
                         <i class="fa-solid fa-x" ></i>
                     </div>
 
@@ -143,19 +148,19 @@
                     <label for="categorias">Categorias</label> 
                     
                     <div class="containerCategorias" >
-                        <input type="radio" name="categoria" id="panificadora">
-                        <label class="categorias" for="panificadora" >Hamburguers</label>
-                        <input type="radio" name="categoria" id="frutas">
-                        <label class="categorias" for="frutas" >Acompanhamentos</label>
-                        <input type="radio" name="categoria" id="bebidas">
-                        <label class="categorias" for="bebidas" >Bebidas</label>
+                        <input type="radio" name="categoria" id="panificadoraa">
+                        <label class="categorias" for="panificadoraa" >Hamburguers</label>
+                        <input type="radio" name="categoria" id="frutass">
+                        <label class="categorias" for="frutass" >Acompanhamentos</label>
+                        <input type="radio" name="categoria" id="bebidass">
+                        <label class="categorias" for="bebidass" >Bebidas</label>
                     </div>
 
                     <label for="valor">Valor do Produto</label>
-                    <input type="number" name="valor" placeholder="Digitar o valor aqui" class="field valor"/>
+                    <input type="number" name="preco" placeholder="Digitar o valor aqui" class="field valor"/>
         
                     <label for="img">Link da imagem</label>
-                    <input type="url" name="img" placeholder="https://image.lorem.com/" class="field link" />
+                    <input type="url" name="imagem" placeholder="https://image.lorem.com/" class="field link" />
         
                     <div class="containerBtts">
                         <button id="delete-button">Excluir</button>
@@ -210,6 +215,45 @@
         </div>
 
      </div>
+
+
+    <div class="alert displayNone" id="erro">
+
+        <div class="alertHead">
+            <h3>Status</h3>
+        </div>
+        <div class="alertBody">
+            <p>Deu erro bro, o produto não foi adicionado :/</p>
+            <div class="red" ></div>
+        </div>
+
+    </div>
+
+
+    <div class="alert displayNone" id="alterado">
+
+        <div class="alertHead">
+            <h3>Status</h3>
+        </div>
+        <div class="alertBody">
+            <p>Alterado com sucesso!!</p>
+            <div class="green" ></div>
+        </div>
+
+    </div>
+
+
+    <div class="alert displayNone" id="apagado">
+
+        <div class="alertHead">
+            <h3>Status</h3>
+        </div>
+        <div class="alertBody">
+            <p>Excluido com sucesso!!</p>
+            <div class="green" ></div>
+        </div>
+
+    </div>
 
     <script src="https://kit.fontawesome.com/94fc682ddb.js" crossorigin="anonymous"></script>
     <script type="module" src="./src/js/dashboardScript.js"></script>
