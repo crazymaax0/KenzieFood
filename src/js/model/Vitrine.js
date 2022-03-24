@@ -15,10 +15,9 @@ export class Vitrine {
     }
 
     static async createHomePageProducts(){
-        // const products = await API.products()
+
         const adminproducts = await API.adminProducts()
-        // console.log(products)
-        // this.createCard(products)
+       
         this.createCard(adminproducts)     
     }
 
@@ -255,4 +254,89 @@ export class Vitrine {
 
         Vitrine.cartInfos(Vitrine.userProducts)
     }
+}
+
+export class FiltrosVitrine {
+
+    static async filtrarNome(input){
+        
+        const products = await API.products()
+
+        let search = products.filter(function(produto){
+
+            const {nome} = produto
+            const searchFormatada = input.toLowerCase().trim()
+            const nomeProdutoFormatado = nome.toLowerCase()
+            
+            if(nomeProdutoFormatado.includes(searchFormatada)){
+                return produto
+            }
+        })
+        
+        for(let i = 0; i < search.length; i++){
+            console.log(search[i])
+        }  
+
+        return search
+    }
+
+    static async filtrarCategoria(id){
+        
+        const products = await API.products()
+
+
+        let search = products.filter(function(produto){
+
+            const {categoria} = produto
+            const searchFormatada = id.toLowerCase().trim()
+            const categoriaProdutoFormatado = categoria.toLowerCase()
+            
+            if(categoriaProdutoFormatado.includes(searchFormatada)){
+                return produto
+            }
+        })
+
+        return search
+    }
+    
+}
+
+export class FiltrosDash {
+
+    static async filtrarNome(input){
+        
+        const products = await API.adminProducts()
+
+        let search = products.filter(function(produto){
+
+            const {nome} = produto
+            const searchFormatada = input.toLowerCase().trim()
+            const nomeProdutoFormatado = nome.toLowerCase()
+            
+            if(nomeProdutoFormatado.includes(searchFormatada)){
+                return produto
+            }
+        })
+            
+        return search
+    }
+
+    static async filtrarCategoria(id){
+        
+        const products = await API.adminProducts()
+
+        let search = products.filter(function(produto){
+
+            const {categoria} = produto
+            const searchFormatada = id.toLowerCase().trim()
+            const categoriaProdutoFormatado = categoria.toLowerCase()
+            
+            if(categoriaProdutoFormatado.includes(searchFormatada)){
+                return produto
+            }
+        })
+
+        return search
+    }
+    
 }

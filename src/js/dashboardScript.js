@@ -1,5 +1,6 @@
 import { API } from "./model/API.js";
 import { Vitrine } from "./model/Vitrine.js";
+import { FiltrosDash } from "./model/Vitrine.js";
 import { Adm } from "./model/Adm.js"
 
 Vitrine.createAdminPageProducts()
@@ -16,6 +17,7 @@ fecharCadastroButton.addEventListener("click", () => {
     cadastroProdutoModal.classList.add("displayNone")
 })
 
+
 const botao = document.getElementById("bebida")
 const div    = document.getElementById("alert")
 
@@ -30,35 +32,49 @@ botao.addEventListener("click", () => {
 })
 
 
-
-
-
-
-
-class Filtros {
-
-    static async filtrarNome(input){
-        
-        const produtos = await API.products()
-
-        let pesquisa = produtos.filter(produto=>produto.name == input)
-
-        return pesquisa
-    }
-    
-}
-
-// console.log(Filtros.filtrarNome())
-
 const campoBuscaNome = document.querySelector("#pesqNome")
+
 campoBuscaNome.addEventListener("keyup", function(){
 
     const value = campoBuscaNome.value
-    console.log(value)
     
-    let resposta = Filtros.filtrarNome(value)
+    let resposta = FiltrosDash.filtrarNome(value)
 
-    console.log(resposta)
+    return resposta
+})
+
+
+const btnPanificadora = document.getElementById('Panificadora');
+
+btnPanificadora.addEventListener('click', function(){
+
+    const value = btnPanificadora.id
+        
+    let resposta = FiltrosDash.filtrarCategoria(value)
+
+    return resposta
+})
+
+const btnFrutas = document.getElementById('Frutas');
+
+btnFrutas.addEventListener('click', function(){
+
+    const value = btnFrutas.id
+        
+    let resposta = FiltrosDash.filtrarCategoria(value)
+
+    return resposta
+})
+
+const btnBebidas = document.getElementById('Bebidas');
+
+btnBebidas.addEventListener('click', function(){
+
+    const value = btnBebidas.id
+        
+    let resposta = FiltrosDash.filtrarCategoria(value)
+
+    return resposta
 })
 
 const btnAddNewProduct = document.getElementById('add');
