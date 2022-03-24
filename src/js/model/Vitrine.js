@@ -236,9 +236,19 @@ export class Vitrine {
 
         const product = userProducts.find(product => product.products.id === id)
 
+        let itemQuantidade = ""
+
+        if(e.target.tagName === "DIV"){
+
+            itemQuantidade = e.target.parentNode.parentNode.children[2].children[0]
+            
+        }else{
+            itemQuantidade = e.target.parentNode.parentNode.parentNode.children[2].children[0]
+
+        }
+        
         if(product.quantity > 1){
             product.quantity--
-            const itemQuantidade = e.target.parentNode.parentNode.parentNode.children[2].children[0]
             itemQuantidade.innerHTML = `<span>${product.quantity}</span><h5>X</h5>`
             Vitrine.setUserData(userProducts)
         }else{
