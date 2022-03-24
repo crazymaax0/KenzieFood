@@ -238,7 +238,7 @@ export class Vitrine {
 
         if(product.quantity > 1){
             product.quantity--
-            const itemQuantidade = document.getElementById("itemQuantidade")
+            const itemQuantidade = e.target.parentNode.parentNode.parentNode.children[2].children[0]
             itemQuantidade.innerHTML = `<span>${product.quantity}</span><h5>X</h5>`
             Vitrine.setUserData(userProducts)
         }else{
