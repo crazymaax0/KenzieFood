@@ -2,17 +2,28 @@ import { Vitrine } from "./model/Vitrine.js";
 import {FiltrosVitrine} from "./model/Vitrine.js"
 import { Adm } from "./model/Adm.js"
 
-if(localStorage.getItem('infosAdmin') === null){
-  hideBtnDashboard()
+const btnLogin = document.getElementById('btnLogin');
 
+
+if(localStorage.getItem('infosAdmin') === null){
+  hideBtn()
 }
 
-function hideBtnDashboard(){
+if(localStorage.getItem('userInfo') !== null){
+  hideBtnLogin()
+}
+
+function hideBtn(){
 
   const btnDashboard = document.getElementById('btnDashboard');
 
-  btnDashboard.classList.add('hideBtn')
+  btnDashboard.classList.add('hideBtn');
 
+}
+
+function hideBtnLogin(){
+
+  btnLogin.classList.add('hideBtn');
 }
 
 const btnLogout = document.getElementById('btnLogout');
@@ -24,6 +35,7 @@ btnLogout.addEventListener('click', () => {
 function removeInfoAdminLocalStorage(){
 
   localStorage.removeItem('infosAdmin')
+  localStorage.removeItem('userInfo')
 }
 
 Vitrine.createHomePageProducts()
