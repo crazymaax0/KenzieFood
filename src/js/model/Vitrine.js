@@ -65,13 +65,11 @@ export class Vitrine {
                     <span>R$ ${price}</span>
                     
                     <div class="cont-icon-add-to-cart" id="${id}">
-                        
+                        <img src="src/img/Cart.png" alt="Adicionar produto ao carrinho">
                     </div>
                 </div>
                 
             `
-
-            
             ul.appendChild(li)
         })
 
@@ -87,8 +85,7 @@ export class Vitrine {
         const products = await API.adminProducts()
         const tbody = document.querySelector("tbody")
 
-        products.forEach(({ categoria, descricao, imagem, nome}) => {
-
+        products.forEach(({ id, categoria, descricao, imagem, nome}) => {
             function categories() {
 
                 const subcategories = categoria.split(" ")
@@ -114,10 +111,18 @@ export class Vitrine {
             const tr = document.createElement("tr")
             tr.innerHTML = `
             <tr>
-                <td class="produto"><img src="${imagem}" alt="${nome}">${nome}</td>
-                <td class="elemento-tabela">${categories()}</td>
-                <td class="elemento-tabela">${description()}</td>
-                <td> <button id="editar"></button> <button id="deletar"></button></td>
+                    <td class="produto">
+                        <figure>
+                            <img src="${imagem}" alt="${nome}">
+                            <figcaption>${nome}</figcaption>
+                        </figure>
+                        
+                    </td>
+                    <td class="elemento-tabela"><span class="categoria--td">${categories()}</span></td>
+                    <td class="elemento-tabela">${description()}</td>
+                    <td class="btts--td" id="${id}"> 
+                        <button id="editar"></button> <button id="deletar"></button>
+                    </td>
             </tr>
             `
             tbody.appendChild(tr)
@@ -126,8 +131,11 @@ export class Vitrine {
 
     static async addToCart(e){
         
-        const id = Number(e.target.id)
-        
+        let id = Number(e.target.id)
+        if(id === 0){
+            id = Number(e.target.parentNode.id)
+        }
+
         await API.addToCart(id)
         
         const cartItens = await API.cart()
