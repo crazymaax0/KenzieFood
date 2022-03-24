@@ -321,6 +321,65 @@ main nav button:hover{
     background: #F8F9FA;
 }
 
+.categoriasMain {
+    height: 40px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #868E96 !important;
+
+}
+
+.categoriasMainBtt {
+    height: 40px;
+    padding: 0px 20px 0px 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    /* border: 1.5px solid #DEE2E6; */
+    border-radius: 32px;
+    background: #F8F9FA;
+}
+
+.panificadora{
+    background-image: url(../img/burguer.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 9px;
+    padding-left: 35px;
+    margin-left: 15px;
+}
+
+.frutas{
+    background-image: url(../img/fritas.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 9px;
+    padding-left: 35px;
+    margin-left: 15px;
+}
+
+.bebidas{
+    background-image: url(../img/refri.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 9px;
+    padding-left: 35px;
+    margin-left: 15px;
+}
+
+.todos {
+    padding: 0px 20px 0px 20px !important;
+}
+
 .categorias:hover {
     cursor: pointer;
 }
@@ -387,6 +446,11 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked + .categorias {
+    color: white !important;
+    background-color: #FF2253;
+}
+
+input[type="radio"]:checked + .categoriasMainBtt {
     color: white !important;
     background-color: #FF2253;
 }
