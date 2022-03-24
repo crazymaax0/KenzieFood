@@ -186,6 +186,20 @@ main nav button:hover{
     background-color: #F8F9FA;
 }
 
+.formPopup::-webkit-scrollbar{
+    width: 12px;
+}
+
+.formPopup::-webkit-scrollbar-track{
+    background-color: #ffffff;
+}
+
+.formPopup::-webkit-scrollbar-thumb{
+    background-color: #FF2253;
+    border-radius: 15px;
+    border: 3px solid #ffffff;
+}
+
 .cadastroBackGround {
     max-width: 100%;
     max-height: 70px;
