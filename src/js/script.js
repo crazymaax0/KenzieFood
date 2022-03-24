@@ -69,7 +69,7 @@ btnTodos.addEventListener('click', () => {
   
 })
 
-const btnPanificadora = document.getElementById('Panificadora');
+const btnPanificadora = document.getElementById('Hamburguers');
 
 btnPanificadora.addEventListener('click', function(){
 
@@ -80,7 +80,7 @@ btnPanificadora.addEventListener('click', function(){
     return search
 })
 
-const btnFrutas = document.getElementById('Frutas');
+const btnFrutas = document.getElementById('Acompanhamentos');
 
 btnFrutas.addEventListener('click', function(){
 
