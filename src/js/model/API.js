@@ -90,7 +90,8 @@ export class API {
     }
 
     static async editProduct(id, product) {
-
+        console.log(id)
+        console.log(product)
         const response = await fetch(this.url + "/my/products/" + `${id}`, {
             "method": "PATCH",
             "headers": {

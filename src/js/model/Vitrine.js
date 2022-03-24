@@ -30,19 +30,6 @@ export class Vitrine {
         ul.innerHTML=""
         productArray.forEach(({categoria, descricao, id, imagem, nome, preco}) => {
 
-            function categories(){
-
-                const subcategories = categoria.split(" ")
-                let result = ""
-
-                for(let i = 0; i < subcategories.length; i++){
-                    result+= `<li>${subcategories[i]}</li>`
-                }
-
-                return result
-
-            }
-
             let priceString = preco.toString()
             let price = priceString.replace("." , ",")
 
@@ -56,7 +43,7 @@ export class Vitrine {
                 <p>${descricao}</p>
 
                 <ul class="categories">
-                    ${categories()}
+                    <li>${categoria}</li>
                 </ul>
 
                 
@@ -86,18 +73,6 @@ export class Vitrine {
         const tbody = document.querySelector("tbody")
         tbody.innerHTML = ""
         products.forEach(({ id, categoria, descricao, imagem, nome}) => {
-            function categories() {
-
-                const subcategories = categoria.split(" ")
-                let result = ""
-
-                for (let i = 0; i < subcategories.length; i++) {
-                    result += `${subcategories[i]} `
-                }
-
-                return result
-
-            }
 
             function description(){
 
@@ -118,7 +93,7 @@ export class Vitrine {
                         </figure>
                         
                     </td>
-                    <td class="elemento-tabela"><span class="categoria--td">${categories()}</span></td>
+                    <td class="elemento-tabela"><span class="categoria--td">${categoria}</span></td>
                     <td class="elemento-tabela">${description()}</td>
                     <td class="btts--td" id="${id}"> 
                         <button id="editar"></button> <button id="deletar"></button>
@@ -156,19 +131,6 @@ export class Vitrine {
             /* ver se coloca quantity no html, para mostrar a quantidade de itens no carrinho */
             const {quantity, products:{categoria, id, imagem, nome, preco}} = product
             if(id){
-
-                function categories() {
-        
-                    const subcategories = categoria.split(" ")
-                    let result = ""
-        
-                    for (let i = 0; i < subcategories.length; i++) {
-                        result += `<p>${subcategories[i]}</p>`
-                    }
-        
-                    return result
-        
-                }
         
                 let priceString = preco.toString()
                 let price = priceString.replace(".", ",")
@@ -187,7 +149,7 @@ export class Vitrine {
                                 <i class="fa-solid fa-trash-can" ></i>
                             </div>
                         </div>
-                        ${categories()}
+                        <p>${categoria}</p>
             
                         <div class="dadosTotalValor" >
                             <div id="itemQuantidade"><span>${quantity}</span><h5>X</h5></div> <div><h5>R$</h5><span>${price}</span></div> 
@@ -241,7 +203,7 @@ export class Vitrine {
         if(e.target.tagName === "DIV"){
 
             itemQuantidade = e.target.parentNode.parentNode.children[2].children[0]
-            
+
         }else{
             itemQuantidade = e.target.parentNode.parentNode.parentNode.children[2].children[0]
 

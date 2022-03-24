@@ -10,14 +10,17 @@ const cadastroProdutoModal  = document.getElementById("cadastroProduto")
 const edicaoProdutoModal  = document.getElementById("edicaoProduto")
 const fecharCadastroButton  = document.getElementById("fecharCadastro")
 const editButton            = document.querySelectorAll("#editar")
-
+const confirmEdit           = document.querySelector("#alt-button")
 
 for(let i of editButton){
     i.addEventListener('click', (e) => {
         const productID = e.target.parentNode.id
         Adm.editProduct(productID)
     })
-  }
+}
+
+confirmEdit.addEventListener("click", Adm.editComplete)
+
 const fecharEdicaoButton  = document.getElementById("fecharEdicaoButton")
 
 add.addEventListener("click", () => {

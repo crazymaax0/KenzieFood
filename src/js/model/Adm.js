@@ -133,7 +133,7 @@ export class Adm {
                 this.dataRegisterProducts.categoria = value;
             }
         })
-
+        console.log(this.dataRegisterProducts)
     };
 
     static regNewProduct(){
@@ -143,62 +143,94 @@ export class Adm {
 
     };
 
+    static productID = ""
+
     static async editProduct(id){
 
         const adminproducts = await API.adminProducts()
 
         const product = adminproducts.find((item) => item.id === Number(id))
-        
+        this.productID = product.id
+
         const {categoria, descricao, imagem, nome, preco} = product
 
-        const formDisplay = document.getElementById('edicaoProduto');
-        formDisplay.classList.remove("displayNone")
-
-        const form = formDisplay.children[0].children[1]
-        
-        const dataRegisterProducts = {
+        this.dataRegisterProducts = {
             nome: nome,
             preco: preco,
             categoria: categoria,
             imagem: imagem,
             descricao: descricao
         };
-        const subcategories = categoria.split(" ")
-        console.log(subcategories)
+
+        const formDisplay = document.getElementById('edicaoProduto');
+        formDisplay.classList.remove("displayNone")
+
+        const form = formDisplay.children[0].children[1]
+
+
+        const prodCateg = document.getElementsByClassName('containerCategorias');
+
+        prodCateg[0].addEventListener('click', (event) => {
+
+            if(event.target.tagName === 'LABEL'){
+                const value = event.target.innerHTML;
+
+                this.dataRegisterProducts.categoria = value;
+            }
+        })
+
 
         for(let i = 0; i < form.children.length; i++){
             if(form.children[i].tagName === 'INPUT'){
                 const key   = form.children[i].name;
-                form.children[i].value = dataRegisterProducts[key]
+                form.children[i].value = this.dataRegisterProducts[key]
             }
+            
+            
             if(form.children[i].tagName === 'DIV'){
                 for(let j = 0; j < form.children[i].children.length; j++){
                     if(form.children[i].children[j].tagName === 'INPUT'){
-                        const key   = form.children[i].children[j].name;
-
-                        console.log(form.children[i].children[j].id)
-                        console.log(dataRegisterProducts)
-
-                        for(let k = 0; k < subcategories.length; k++){
-                            if(subcategories[k] === form.children[i].children[j].id){
-                                console.log(form.children[i].children[j])
-
-                            }
+                        const key   = form.children[i].children[j];
+                        let sliced = key.id.slice(0,-2)
+                        console.log(sliced)
+                        if(sliced === this.dataRegisterProducts.categoria){
+                            console.log(key)
+                            key.checked = true
                         }
-
-                        /* if(subcategories[i] === form.children[i].children[j].id){
-                            form.children[i].children[j].checked = true
-                            
-                        } */
                     }
                 }
-
                 
             }
         }
-        
 
+        const prodCategEdit = document.getElementsByClassName('containerCategorias');
+        prodCategEdit[1].addEventListener('click', (event) => {
 
+            if(event.target.tagName === 'LABEL'){
+
+                const value = event.target.innerHTML;
+                Adm.dataRegisterProducts.categoria = value;
+            }
+        })
+
+    }
+    
+    static async editComplete(e){
+        e.preventDefault()
+
+        const form = e.target.parentNode.parentNode.parentNode.children[1].children
+        for(let i = 0; i < form.length; i++){
+            if(form[i].tagName === 'INPUT'){
+                const key   = form[i].name;
+                const value = form[i].value;
+
+                Adm.dataRegisterProducts[key] = value;
+            }
+        }
+
+        const product = Adm.dataRegisterProducts
+        await API.editProduct(Adm.productID,product)
+        window.location = "../../../dashboard.html"
     }
     static showAlerts(aviso) {
 
