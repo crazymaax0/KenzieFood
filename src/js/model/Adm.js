@@ -128,4 +128,9 @@ export class Adm {
 
     };
 
+    static async remove(e){
+        e.preventDefault()
+        
+    }
+
 }

@@ -1,6 +1,5 @@
 import { API } from "./model/API.js";
 import { FiltrosVitrine, Vitrine } from "./model/Vitrine.js";
-// import { FiltrosDash } from "./model/Vitrine.js";
 import { Adm } from "./model/Adm.js"
 
 const products = await API.adminProducts()
@@ -31,6 +30,8 @@ botao.addEventListener("click", () => {
         div.classList.add("displayNone")
     }, 3000)
 })
+
+// FILTROS //
 
 const btnTodos = document.getElementById('Todos');
 
@@ -86,6 +87,41 @@ btnBebidas.addEventListener('click', function(){
     return resposta
 })
 
+// adicionar, editar e excluir produtos //
+
 const btnAddNewProduct = document.getElementById('add');
 
 btnAddNewProduct.addEventListener('click', () => Adm.getInfosNewProduct());
+
+
+const excluirProdutoModal  = document.getElementById("excluirProduto")
+const fecharExcluirButton  = document.getElementById("fecharExcluir")
+const fecharNãoButton      = document.querySelector(".deleteBtt--nao")
+
+const btnRemoveProduct = document.querySelectorAll('.btts--td')
+
+fecharExcluirButton.addEventListener("click", () => {
+    excluirProdutoModal.classList.add("displayNone")
+})
+
+fecharNãoButton.addEventListener("click", () => {
+
+    excluirProdutoModal.classList.add("displayNone")
+})
+
+for (let i = 0; i < btnRemoveProduct.length; i++){
+
+    btnRemoveProduct[i].addEventListener("click", () => {
+        excluirProdutoModal.classList.remove("displayNone")
+    })
+    
+    btnRemoveProduct[i].addEventListener('click', function(){
+
+        const value = btnRemoveProduct[i].id
+
+        return value
+    
+    }
+
+    
+)}
