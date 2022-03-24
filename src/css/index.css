@@ -356,6 +356,20 @@ aside h4 {
   color: white;
 }
 
+.boxEmpty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 89px;
+}
+
+.boxEmpty img {
+    margin-bottom: 31px;
+    width: 48px;
+    height: 48px;
+}
+
 /*                                  POP-UP                                    */
 
 .displayNone {

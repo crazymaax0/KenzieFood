@@ -104,6 +104,8 @@ export class Vitrine {
         })
     }
 
+    static adicionado = false
+
     static async addToCart(e){
         
         let id = Number(e.target.id)
@@ -111,6 +113,7 @@ export class Vitrine {
             id = Number(e.target.parentNode.id)
         }
 
+        Vitrine.adicionado = true
         await API.addToCart(id)
         
         const cartItens = await API.cart()
@@ -125,41 +128,55 @@ export class Vitrine {
         let cartProducts = Vitrine.getUserData()
 
         const ul = document.getElementById("cartUl")
+        console.log(ul.children.length)
+
         ul.innerHTML = ""
 
-        cartProducts.forEach((product) => {
-            /* ver se coloca quantity no html, para mostrar a quantidade de itens no carrinho */
-            const {quantity, products:{categoria, id, imagem, nome, preco}} = product
-            if(id){
-        
-                let priceString = preco.toString()
-                let price = priceString.replace(".", ",")
-        
-                const li = document.createElement("li")
-                li.innerHTML = `
-                    <div>
-                        <img src="${imagem}" alt="${nome}">
-                    </div>
+        if(Vitrine.adicionado === true){
             
-                    <div class="dados" > 
-                                        
-                        <div class="dados-line" >
-                            <h4>${nome}</h4>
-                            <div class="trash-can-background" id="${id}" >
-                                <i class="fa-solid fa-trash-can" ></i>
+            cartProducts.forEach((product) => {
+                /* ver se coloca quantity no html, para mostrar a quantidade de itens no carrinho */
+                const {quantity, products:{categoria, id, imagem, nome, preco}} = product
+                if(id){
+            
+                    let priceString = preco.toString()
+                    let price = priceString.replace(".", ",")
+            
+                    const li = document.createElement("li")
+                    li.innerHTML = `
+                        <div>
+                            <img src="${imagem}" alt="${nome}">
+                        </div>
+                
+                        <div class="dados" > 
+                                            
+                            <div class="dados-line" >
+                                <h4>${nome}</h4>
+                                <div class="trash-can-background" id="${id}" >
+                                    <i class="fa-solid fa-trash-can" ></i>
+                                </div>
+                            </div>
+                            <p>${categoria}</p>
+                
+                            <div class="dadosTotalValor" >
+                                <div id="itemQuantidade"><span>${quantity}</span><h5>X</h5></div> <div><h5>R$</h5><span>${price}</span></div> 
                             </div>
                         </div>
-                        <p>${categoria}</p>
+                        `
+                    ul.appendChild(li)
+                }
+            })
+        }else{
+            ul.innerHTML = `
+            <div class="boxEmpty">
+            <img src="../../../src/img/carrinhoVazio.png" alt="Carrinho Vazio">
+            <p>Por enquanto não temos produtos no carrinho</p>
+            </div>
+            `
             
-                        <div class="dadosTotalValor" >
-                            <div id="itemQuantidade"><span>${quantity}</span><h5>X</h5></div> <div><h5>R$</h5><span>${price}</span></div> 
-                        </div>
-                    </div>
-                    `
-                ul.appendChild(li)
-            }
-        })
-
+            console.log(ul.children.length)
+        }
+        
         const deleteButtons = document.querySelectorAll(".trash-can-background")
         deleteButtons.forEach((button) => {
 
@@ -224,6 +241,18 @@ export class Vitrine {
             const li = e.target.closest("li")
             li.remove()
             API.removeFromCart(id)
+
+        }
+
+        const ul = document.getElementById("cartUl")
+
+        if(ul.children.length === 0){
+            ul.innerHTML = `
+            <div class="boxEmpty">
+            <img src="../../../src/img/carrinhoVazio.png" alt="Carrinho Vazio">
+            <p>Por enquanto não temos produtos no carrinho</p>
+            </div>
+            `
         }
         
         Vitrine.cartInfos(userProducts)
