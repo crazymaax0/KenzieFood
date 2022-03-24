@@ -130,6 +130,7 @@ main nav button:last-child{
 #add{
     color: #ffffff;
     background-color: #FF2253;
+    margin-left: 35px;
 }
 
 main nav button:first-child{
@@ -288,10 +289,6 @@ main nav button:hover{
     padding-top: 0px;
 }
 
-.formBody .descricao::placeholder {
-
-}
-
 .formBody .containerCategorias {
     display: flex;
     justify-content: space-between;
@@ -336,7 +333,7 @@ main nav button:hover{
 }
 
 .categoriasMainBtt {
-    height: 40px;
+    height: 48px;
     padding: 0px 20px 0px 0px;
 
     display: flex;
@@ -344,9 +341,18 @@ main nav button:hover{
     align-items: center;
 
     border: none;
-    /* border: 1.5px solid #DEE2E6; */
     border-radius: 32px;
     background: #F8F9FA;
+
+}
+
+.categoriasMainBtt:hover {
+    cursor: pointer;
+}
+
+.todos {
+    padding: 0px 20px 0px 20px !important;
+    color: #212529;
 }
 
 .panificadora{
@@ -356,6 +362,7 @@ main nav button:hover{
     background-position: 9px;
     padding-left: 35px;
     margin-left: 15px;
+    color: #212529;
 }
 
 .frutas{
@@ -365,6 +372,7 @@ main nav button:hover{
     background-position: 9px;
     padding-left: 35px;
     margin-left: 15px;
+    color: #212529;
 }
 
 .bebidas{
@@ -374,10 +382,7 @@ main nav button:hover{
     background-position: 9px;
     padding-left: 35px;
     margin-left: 15px;
-}
-
-.todos {
-    padding: 0px 20px 0px 20px !important;
+    color: #212529;
 }
 
 .categorias:hover {

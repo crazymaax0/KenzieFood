@@ -96,7 +96,7 @@ nav{
 
 .categorias {
 
-    height: 40px;
+    height: 48px;
 
     display: flex;
     justify-content: center;
@@ -106,7 +106,7 @@ nav{
     font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 400;
-    color: #868E96 !important;
+    color: #212529 !important;
 
     border: none;
     /* border: 1.5px solid #DEE2E6; */

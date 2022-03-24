@@ -8,7 +8,9 @@ Vitrine.createAdminPageProducts(products)
 
 const add                   = document.getElementById("add")
 const cadastroProdutoModal  = document.getElementById("cadastroProduto")
+const edicaoProdutoModal  = document.getElementById("edicaoProduto")
 const fecharCadastroButton  = document.getElementById("fecharCadastro")
+const fecharEdicaoButton  = document.getElementById("fecharEdicaoButton")
 
 add.addEventListener("click", () => {
     cadastroProdutoModal.classList.remove("displayNone")
@@ -16,6 +18,11 @@ add.addEventListener("click", () => {
 
 fecharCadastroButton.addEventListener("click", () => {
     cadastroProdutoModal.classList.add("displayNone")
+})
+
+
+fecharEdicaoButton.addEventListener("click", () => {
+    edicaoProdutoModal.classList.add("displayNone")
 })
 
 
