@@ -152,16 +152,18 @@ main nav button:hover{
   
 .formPopup {
     width: 496px;
+    max-height: calc(100vh - 20px);
 
     display: flex;
     flex-direction: column;
 
     /* padding: 20px; */
+    margin: 10px 0px;
     
-    
-    /* position:absolute;
-    left: 30rem;
-    top: 5rem; */
+    overflow-y: scroll;
+    /* position: absa; */
+    /* left: 30rem;
+    top: 5rem;  */
     border-radius: 12px;
     background-color: #F8F9FA;
 }
@@ -250,8 +252,12 @@ main nav button:hover{
     position: relative;
 }
 
+.descricao {
+    padding-top: 0px;
+}
+
 .formBody .descricao::placeholder {
-    position: absolute;
+
 }
 
 .formBody .containerCategorias {
@@ -298,6 +304,8 @@ main nav button:hover{
 #register-button{
     width: 100%;
     height: 52px;
+
+    margin-bottom: 8px;
 
     font-family: 'Poppins', sans-serif;
     color: #ffffff;
@@ -461,6 +469,10 @@ thead tr{
     text-align: left;
 }
 
+th:first-child {
+    padding-left: 18px;
+}
+
 td {
     border: 1px solid #E9ECEF;
     border-style: solid none;
@@ -482,22 +494,34 @@ td img{
     width: 32px;
     height: 32px;
     border: none;
-    border-radius: 150px;
+    border-radius: 50%;
+    margin: 10px 0px 10px 20px;
+    display: inline-block;
 }
 
 .produto{
-    font-family: Poppins;
+    font-family: "Poppins";
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
     letter-spacing: 0em;
     text-align: left;
+    height: 62px;    
+}
 
+.produto figure {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.produto figure img {
+    margin-right: 24px;
 }
 
 .elemento-tabela{
-    font-family: Poppins;
+    font-family: "Poppins";
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -506,6 +530,22 @@ td img{
     text-align: left;
     color: #868E96;
 
+    vertical-align: middle;
+}
+
+.btts--td {
+    width: 115px;
+}
+
+.btts--td button{
+    margin: 7px 5px;
+}
+
+.categoria--td {
+    padding: 3px 17px;
+
+    border-radius: 8px;
+    background-color: #F8F9FA;
 }
 
 #editar{
@@ -541,7 +581,8 @@ td img{
 /* ===== ALERTA ===== */
 
 .alert{
-    min-width: 496px;
+    max-width: 496px;
+    min-width: 320px;
     height: 135px;
     
     position: absolute;
