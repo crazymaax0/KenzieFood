@@ -89,20 +89,20 @@ main nav button:last-child{
     padding: 15px 20px;
 }
 
-#pao{
+#Panificadora{
     background-image: url(../img/Icon_bread.png);
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 1px;
 }
 
-#fruta{
+#Frutas{
     background-image: url(../img/Icon_fruits.png);
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 1px;
 }
-#bebida{
+#Bebidas{
     background-image: url(../img/Icon_glass\ of\ wine.png);
     background-repeat: no-repeat;
     background-size: 20px;
