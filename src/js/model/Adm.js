@@ -129,4 +129,40 @@ export class Adm {
 
     };
 
+    static showAlerts(aviso) {
+
+        const criado  = document.getElementById("alert")
+        const erro    = document.getElementById("erro")
+
+        const cadastroProdutoModal  = document.getElementById("cadastroProduto")
+        const fecharCadastroButton  = document.getElementById("fecharCadastro")
+        
+        if(aviso == 201) {
+            criado.classList.add("show")
+            criado.classList.remove("displayNone")
+            criado.classList.add("showAlert")
+            setTimeout( () => {
+                criado.classList.remove("show")
+                criado.classList.add("displayNone")
+            }, 3000)
+
+            cadastroProdutoModal.classList.add("displayNone")
+
+        }
+
+        else if(aviso == 400) {
+            erro.classList.add("show")
+            erro.classList.remove("displayNone")
+            erro.classList.add("showAlert")
+            setTimeout( () => {
+                erro.classList.remove("show")
+                erro.classList.add("displayNone")
+            }, 3000)
+
+            cadastroProdutoModal.classList.add("displayNone")
+
+        }
+
+    }
+
 }

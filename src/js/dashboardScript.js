@@ -19,19 +19,6 @@ fecharCadastroButton.addEventListener("click", () => {
 })
 
 
-const botao = document.getElementById("Bebidas")
-const div    = document.getElementById("alert")
-
-botao.addEventListener("click", () => {
-    div.classList.add("show")
-    div.classList.remove("displayNone")
-    div.classList.add("showAlert")
-    setTimeout( () => {
-        div.classList.remove("show")
-        div.classList.add("displayNone")
-    }, 3000)
-})
-
 const btnTodos = document.getElementById('Todos');
 
 btnTodos.addEventListener('click', async () => {

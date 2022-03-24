@@ -1,6 +1,9 @@
 import { Vitrine } from "./model/Vitrine.js";
 import {FiltrosVitrine} from "./model/Vitrine.js"
 
+Vitrine.createHomePageProducts()
+Vitrine.createCartCard()
+
 document.getElementById("abrirCarrinho").addEventListener( "click", () => {
   document.getElementById("cartPopupBackGround").classList.remove("displayNone")
 })
@@ -8,9 +11,6 @@ document.getElementById("abrirCarrinho").addEventListener( "click", () => {
 document.getElementById("fecharCarrinho").addEventListener( "click", () => {
   document.getElementById("cartPopupBackGround").classList.add("displayNone")
 })
-
-Vitrine.createHomePageProducts()
-Vitrine.createCartCard()
 
 const campoBuscaNome = document.getElementById("pesqNome")
 
