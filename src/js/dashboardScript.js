@@ -18,7 +18,7 @@ fecharCadastroButton.addEventListener("click", () => {
 })
 
 
-const botao = document.getElementById("bebida")
+const botao = document.getElementById("Bebidas")
 const div    = document.getElementById("alert")
 
 botao.addEventListener("click", () => {
