@@ -131,13 +131,15 @@ export class Adm {
 
     static async remove(e){
                
-        API.deleteProduct(e)
+        const removeToken = await API.deleteProduct(e)
 
-        const excluirProdutoModal  = document.getElementById("excluirProduto")
+        console.log(removeToken)
 
-        excluirProdutoModal.classList.add("displayNone")
+        if(removeToken === 204){
 
-        window.location = "../../../dashboard.html"
+            window.location = "../../../dashboard.html"
+        }
+
     }
 
 }
