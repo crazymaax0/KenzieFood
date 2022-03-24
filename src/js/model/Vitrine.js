@@ -251,7 +251,7 @@ export class Vitrine {
             li.remove()
         }
 
-        // API.removeFromCart(id)
+        API.removeFromCart(id)
         Vitrine.cartInfos(userProducts)
     }
 }
