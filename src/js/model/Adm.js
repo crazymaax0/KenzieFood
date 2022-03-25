@@ -56,9 +56,9 @@ export class Adm {
 
                 localStorage.setItem('infosAdmin', JSON.stringify(dataAdmin))
 
-                window.location = "../../../index.html"
+                window.location = "../../../api-kenziefood-m2-mucasliranda/index.html"
             }else{
-                window.location = "../../../index.html"
+                window.location = "../../../api-kenziefood-m2-mucasliranda/index.html"
             }
         }
         
