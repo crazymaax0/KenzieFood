@@ -64,6 +64,9 @@ export class Adm {
                 window.location = "../../../api-kenziefood-m2-mucasliranda/index.html"
             }else{
                 window.location = "../../../api-kenziefood-m2-mucasliranda/index.html"
+
+
+                
             }
         }
         
