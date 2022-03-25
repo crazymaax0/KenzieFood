@@ -18,10 +18,6 @@ export class Vitrine {
 
         const token = Adm.getUserInfo()
 
-        if(token === API.token){
-            /* CRIAR O ELEMENTO "PARA DASHBOARD" NO HEADER, QUE SOMENTE APARECE QUANDO O TOKEN É O DO ADM */
-        }
-
         Vitrine.createCard(adminproducts)     
     }
 
@@ -49,7 +45,7 @@ export class Vitrine {
                 
 
                 <div class="buy">
-                    <span>R$ ${price}</span>
+                    <span class="virgula" >R$ ${price}</span>
                     
                     <div class="cont-icon-add-to-cart" id="${id}">
                         <img src="src/img/Cart.png" alt="Adicionar produto ao carrinho">
@@ -65,7 +61,6 @@ export class Vitrine {
 
             button.addEventListener( "click", Vitrine.addToCart)
         })
-
     }
 
     static async createAdminPageProducts(products) {
@@ -134,7 +129,6 @@ export class Vitrine {
         if(Vitrine.adicionado === true){
             
             cartProducts.forEach((product) => {
-                /* ver se coloca quantity no html, para mostrar a quantidade de itens no carrinho */
                 const {quantity, products:{categoria, id, imagem, nome, preco}} = product
                 if(id){
             
@@ -158,7 +152,7 @@ export class Vitrine {
                             <p>${categoria}</p>
                 
                             <div class="dadosTotalValor" >
-                                <div id="itemQuantidade"><span>${quantity}</span><h5>X</h5></div> <div><h5>R$</h5><span>${price}</span></div> 
+                                <div id="itemQuantidade"><span>${quantity}</span><h5>X</h5></div> <div><h5>R$</h5><span class="virgula" >${price}</span></div> 
                             </div>
                         </div>
                         `
@@ -199,7 +193,7 @@ export class Vitrine {
         let price = priceString.replace(".", ",")
 
         quantity.innerHTML = `<span>${totalItens}</span>`
-        cash.innerHTML = `<p class="sifrao" >R$</p><span>${price}</span>`
+        cash.innerHTML = `<p class="sifrao" >R$</p><span class="virgula" >${price}</span>`
     }
 
     static removeItem(e){
@@ -274,7 +268,6 @@ export class FiltrosVitrine {
         })
         
         return search
-        
     }
     
     static async filtrarPesquisaHomePage(input) {
@@ -305,7 +298,6 @@ export class FiltrosVitrine {
         })
 
         return search
-        
     }
 
     static async filtrarCategoriaHomePage(input) {
@@ -319,5 +311,4 @@ export class FiltrosVitrine {
         
         Vitrine.createAdminPageProducts(array)
     }
-    
 }

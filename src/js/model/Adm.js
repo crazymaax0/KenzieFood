@@ -1,5 +1,4 @@
 import { API } from "./API.js";
-import { Vitrine } from "./Vitrine.js";
 
 export class Adm {
 
@@ -30,7 +29,7 @@ export class Adm {
 
         for(let i = 0; i < loginForm.length -1; i++){
             if(loginForm[i].name){
-                console.log(loginForm[i].name)
+
                 const name = loginForm[i].name
                 const value = loginForm[i].value
 
@@ -39,14 +38,11 @@ export class Adm {
 
             loginForm[i].value = ""
         }
-        console.log(userInfos)
+
         const loginToken = await API.login(userInfos)
-        console.log(loginToken)
+
 
         if(loginToken === 404 || loginToken === 401){
-            /* CRIAR VIA DOM UM POPUP OU MENSAGEM QUE DIZ QUE DEU RUIM */
-
-
         }else{
 
             Adm.setUserInfo(loginToken)
@@ -63,8 +59,6 @@ export class Adm {
                 window.location = "../../../index.html"
             }else{
                 window.location = "../../../index.html"
-
-                console.log(loginToken);
             }
         }
         
@@ -74,7 +68,6 @@ export class Adm {
         e.preventDefault()
 
         let registerForm = e.target.parentNode
-        console.log(registerForm)
         const userInfos = {}
 
         for(let i = 0; i < registerForm.length -1; i++){
@@ -88,15 +81,11 @@ export class Adm {
 
             registerForm[i].value = ""
         }
-        console.log(userInfos)
         const registerToken = await API.register(userInfos)
 
         if(registerToken === 404){
-            /* CRIAR VIA DOM UM POPUP OU MENSAGEM QUE DIZ QUE DEU RUIM */
         }else{
-
             Adm.setUserInfo(registerToken)
-            /* O USUARIO FOI CRIADO, MOSTRAR MENSAGEM QUE FOI CRIADO E MUDAR O SELECIONADO PARA LOGIN */
         }
         
     }
@@ -110,17 +99,13 @@ export class Adm {
             event.preventDefault();
 
             for(let i = 0; i < event.target.children[1].children.length; i++){
-
                 if(event.target.children[1].children[i].tagName === 'INPUT'){
-
                     const key   = event.target.children[1].children[i].name;
                     const value = event.target.children[1].children[i].value;
-
                     this.dataRegisterProducts[key] = value;
                 }
             }
-
-            this.regNewProduct();
+            API.newProduct(this.dataRegisterProducts);
         });
 
         const prodCateg = document.getElementsByClassName('containerCategorias');
@@ -129,26 +114,15 @@ export class Adm {
 
             if(event.target.tagName === 'LABEL'){
                 const value = event.target.innerHTML;
-
                 this.dataRegisterProducts.categoria = value;
             }
         })
-        console.log(this.dataRegisterProducts)
-    };
-
-    static regNewProduct(){
-
-        API.newProduct(this.dataRegisterProducts);
-        
-
     };
 
     static productID = ""
 
     static async editProduct(id){
-
         const adminproducts = await API.adminProducts()
-
         const product = adminproducts.find((item) => item.id === Number(id))
         this.productID = product.id
 
@@ -166,15 +140,11 @@ export class Adm {
         formDisplay.classList.remove("displayNone")
 
         const form = formDisplay.children[0].children[1]
-
-
         const prodCateg = document.getElementsByClassName('containerCategorias');
 
         prodCateg[0].addEventListener('click', (event) => {
-
             if(event.target.tagName === 'LABEL'){
                 const value = event.target.innerHTML;
-
                 this.dataRegisterProducts.categoria = value;
             }
         })
@@ -192,14 +162,11 @@ export class Adm {
                     if(form.children[i].children[j].tagName === 'INPUT'){
                         const key   = form.children[i].children[j];
                         let sliced = key.id.slice(0,-2)
-                        console.log(sliced)
                         if(sliced === this.dataRegisterProducts.categoria){
-                            console.log(key)
                             key.checked = true
                         }
                     }
                 }
-                
             }
         }
 
@@ -207,7 +174,6 @@ export class Adm {
         prodCategEdit[1].addEventListener('click', (event) => {
 
             if(event.target.tagName === 'LABEL'){
-
                 const value = event.target.innerHTML;
                 Adm.dataRegisterProducts.categoria = value;
             }
@@ -223,14 +189,14 @@ export class Adm {
             if(form[i].tagName === 'INPUT'){
                 const key   = form[i].name;
                 const value = form[i].value;
-
                 Adm.dataRegisterProducts[key] = value;
             }
         }
 
         const product = Adm.dataRegisterProducts
         await API.editProduct(Adm.productID,product)
-        window.location = "../../../dashboard.html"
+        
+        Adm.showAlerts(202)
     }
     static showAlerts(aviso) {
 
@@ -238,19 +204,42 @@ export class Adm {
         const erro    = document.getElementById("erro")
 
         const cadastroProdutoModal  = document.getElementById("cadastroProduto")
-        const fecharCadastroButton  = document.getElementById("fecharCadastro")
+        const loginErrado           = document.getElementById("errado")
+        const produtoAlterado       = document.getElementById("alterado")
+        const produtoApagado        = document.getElementById("apagado")
         
+
         if(aviso == 201) {
             criado.classList.add("show")
             criado.classList.remove("displayNone")
             criado.classList.add("showAlert")
-            setTimeout( () => {
-                criado.classList.remove("show")
-                criado.classList.add("displayNone")
-            }, 3000)
+                setTimeout( () => {
+                    criado.classList.remove("show")
+                    criado.classList.add("displayNone")
+                    window.location = "../../../dashboard.html"
+                }, 1500)
+        }
 
-            cadastroProdutoModal.classList.add("displayNone")
+        else if(aviso == 202) {
+            produtoAlterado.classList.add("show")
+            produtoAlterado.classList.remove("displayNone")
+            produtoAlterado.classList.add("showAlert")
+                setTimeout( () => {
+                    produtoAlterado.classList.remove("show")
+                    produtoAlterado.classList.add("displayNone")
+                    window.location = "../../../dashboard.html"
+                }, 1500)
+        }
 
+        else if(aviso == 204) {
+            produtoApagado.classList.add("show")
+            produtoApagado.classList.remove("displayNone")
+            produtoApagado.classList.add("showAlert")
+                setTimeout( () => {
+                    produtoApagado.classList.remove("show")
+                    produtoApagado.classList.add("displayNone")
+                    window.location = "../../../dashboard.html"
+                }, 1500)  
         }
 
         else if(aviso == 400) {
@@ -261,22 +250,23 @@ export class Adm {
                 erro.classList.remove("show")
                 erro.classList.add("displayNone")
             }, 3000)
-
             cadastroProdutoModal.classList.add("displayNone")
+        }
+        
+        else if(aviso == 404) {
+            loginErrado.classList.add("show")
+            loginErrado.classList.remove("displayNone")
+            loginErrado.classList.add("showAlert")
+            setTimeout( () => {
+                loginErrado.classList.remove("show")
+                loginErrado.classList.add("displayNone")
+            }, 3000)
         }
     }
 
     static async remove(e){
-               
         const removeToken = await API.deleteProduct(e)
 
-        console.log(removeToken)
-
-        if(removeToken === 204){
-
-            window.location = "../../../dashboard.html"
-        }
-
+        Adm.showAlerts(removeToken)
     }
-
 }

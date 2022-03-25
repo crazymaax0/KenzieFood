@@ -1,5 +1,4 @@
 import { Adm } from "./model/Adm.js";
-import { API } from "./model/API.js";
 
 const login        = document.getElementById("login")
 const register     = document.getElementById("register")
@@ -29,7 +28,3 @@ register.addEventListener("click", () => {
   registerForm.classList.remove("displayNone")
   loginForm.classList.add("displayNone")
 })
-
-const btnRegister = document.getElementById('register');
-
-btnRegister.addEventListener('click', () => Adm.registerAdmin())

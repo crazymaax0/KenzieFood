@@ -67,8 +67,6 @@ h2{
     box-sizing: border-box;
 }
 
-
-
 #usuario{
     width: 36px;
     height: 36px;
@@ -88,7 +86,6 @@ h2{
 }
 
 .header-page .search a:first-child{
-    
     margin-right: 15px;
 }
 
@@ -102,7 +99,6 @@ h2{
 
 /* ===== MAIN ===== */
 main{ 
-    /* height: 510px; */
     padding: 0 50px;
 }
 /* ========== */
@@ -146,6 +142,7 @@ main nav button:last-child{
     background-position: 9px;
     padding-left: 35px;
 }
+
 #Bebidas{
     background-image: url(../img/refri.png);
     background-repeat: no-repeat;
@@ -203,13 +200,8 @@ main nav button:hover{
     display: flex;
     flex-direction: column;
 
-    /* padding: 20px; */
     margin: 10px 0px;
-    
     overflow-y: scroll;
-    /* position: absa; */
-    /* left: 30rem;
-    top: 5rem;  */
     border-radius: 12px;
     background-color: #F8F9FA;
 }
@@ -340,7 +332,6 @@ main nav button:hover{
     color: #868E96 !important;
 
     border: none;
-    /* border: 1.5px solid #DEE2E6; */
     border-radius: 32px;
     background: #F8F9FA;
 }
@@ -356,7 +347,6 @@ main nav button:hover{
     font-size: 14px;
     font-weight: 400;
     color: #868E96 !important;
-
 }
 
 .categoriasMainBtt {
@@ -370,7 +360,6 @@ main nav button:hover{
     border: none;
     border-radius: 32px;
     background: #F8F9FA;
-
 }
 
 .categoriasMainBtt:hover {
@@ -567,15 +556,6 @@ input[type="radio"]:checked + .categoriasMainBtt {
     background-color: #F8F9FA;
 }
 
-
-
-
-
-
-
-
-
-
 /* ========== */
 
 /* ===== TABELA PRODUCTS ===== */
@@ -584,7 +564,7 @@ table {
     width: 100%;
     border-collapse: separate; 
     border-spacing: 0 20px; 
-    margin-top: 58px; 
+    margin-top: 15px; 
 }
 
 thead tr{
@@ -701,12 +681,6 @@ td img{
     background-position: 13px;
 }
 
-
-
-
-
-
-
 /* ===== ALERTA ===== */
 
 .alert{
@@ -715,11 +689,10 @@ td img{
     height: 135px;
     
     position: absolute;
+    z-index: 30000;
     bottom: 25px;
     right: 25px;
     
-    /* overflow: hidden; */
-
     opacity: 0;
 }
 
@@ -753,7 +726,7 @@ td img{
     justify-content: flex-start;
     align-items: center;
 
-    
+    border-radius: 0px 0px 8px 8px;
     background-color: #FFF;
 }
 
@@ -840,6 +813,5 @@ td img{
     
     header {
         height: 86px;
-        
     }
 }

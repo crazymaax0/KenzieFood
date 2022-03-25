@@ -1,6 +1,5 @@
 import { Vitrine } from "./model/Vitrine.js";
 import {FiltrosVitrine} from "./model/Vitrine.js"
-import { Adm } from "./model/Adm.js"
 
 const btnLogin = document.getElementById('btnLogin');
 

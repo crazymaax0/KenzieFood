@@ -35,6 +35,7 @@ export class API {
         })
 
         if(response.status === 404){
+            Adm.showAlerts(response.status)
             return response.status
         }
 
@@ -67,7 +68,7 @@ export class API {
         })
 
         const data = await response.json()
-        
+
         return data
     }
 
@@ -90,8 +91,7 @@ export class API {
     }
 
     static async editProduct(id, product) {
-        console.log(id)
-        console.log(product)
+
         const response = await fetch(this.url + "/my/products/" + `${id}`, {
             "method": "PATCH",
             "headers": {
@@ -102,7 +102,8 @@ export class API {
         })
 
         const data = await response.json()
-        
+
+        Adm.showAlerts(response.status)
         return data
     }
 
@@ -132,7 +133,7 @@ export class API {
         })
 
         const data = await response.json()
-        console.log(response)
+
         return data
     }
 
@@ -164,5 +165,4 @@ export class API {
             }
         })
     }
-
 }

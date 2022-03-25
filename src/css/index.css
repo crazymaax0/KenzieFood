@@ -14,9 +14,9 @@ body{
 .header-page{
     width: 100%;
     padding: 21px 18px;
-    margin-bottom: 35px;
+    margin-bottom: 31px;
     box-sizing: border-box;
-    position: fixed;
+    position: sticky;
     top: 0px;
     z-index: 1; 
     box-shadow: 0px 0px 40px -18px rgba(0, 0, 0, 0.25);
@@ -26,13 +26,10 @@ body{
 .header-page .logo{
     width: 122px;
     height: 100%;
-    /* padding-bottom: 40px; */
     display: flex;
     align-items: center;
     margin-bottom: 15px;
     margin-top: -10px;
-
-    /* margin-left: 50px !important; */
 }
 
 .header-page .logo h1{
@@ -126,7 +123,6 @@ nav{
 }
 
 .categorias {
-
     height: 48px;
 
     display: flex;
@@ -140,7 +136,6 @@ nav{
     color: #212529 !important;
 
     border: none;
-    /* border: 1.5px solid #DEE2E6; */
     border-radius: 32px;
     background: #F8F9FA;
 }
@@ -317,8 +312,8 @@ nav button:hover{
 }
 
 .cont-products .card-product .buy .cont-icon-add-to-cart img{
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
 }
 
 .cont-products .card-product .buy .cont-icon-add-to-cart:hover{
@@ -427,7 +422,6 @@ aside h4 {
   }
 
 .fa-xContainer {
-
     width: 31px;
     height: 30px;
     display: flex;
@@ -438,10 +432,8 @@ aside h4 {
 }
 
 .fa-x {
-
     color: rgba(255, 255, 255, 0.65);
-
-    }
+}
 
 .fa-xContainer:hover {
     background-color: white;
@@ -454,9 +446,9 @@ aside h4 {
 
 
 .cartPopupBody {
-  width: 100%;
-  min-height: 400px;
-  background-color: white;
+    width: 100%;
+    min-height: 400px;
+    background-color: white;
 }
 
 #cartUl {
@@ -571,10 +563,6 @@ aside h4 {
         margin-right: 2px;
     }
 
-
-
-
-
 .cartPopupQnt {
   width: 100%;
   height: 60px;
@@ -627,21 +615,12 @@ aside h4 {
     flex-wrap: wrap;
   }
 
-    .sifrao {
-      margin-right: 5px;
-    }
-
-
-
-
-
+.sifrao {
+    margin-right: 5px;
+}
 
     /* ===== MEDIA QUERY ===== */
 @media screen and (max-width: 359px){
-    main {
-
-    }
-
     .header-page {
         flex-direction: column;
     }
@@ -649,15 +628,9 @@ aside h4 {
     #pesqNome {
         width: 50px;
     }
-
 }
 
 @media screen and (max-width: 360px){
-    
-    aside{
-
-    }
-    
     .header-page{
         width: 100%;
         height: 70px;
@@ -666,12 +639,6 @@ aside h4 {
         align-items: center;
         justify-content: space-between;
     }
-
-    /* main {
-        background-color: #FF2253;
-    } */
-
-
 }
 
 @media screen and (max-width: 580px){
@@ -686,12 +653,6 @@ aside h4 {
 }
 
 @media screen and (min-width: 768px){
-    /* body{
-        height: 100vh;
-    }  */
-
-
-
     .header-page .logo h1{
         margin-right: 7px;
         font-size: 21px;
@@ -768,7 +729,6 @@ aside h4 {
     }
 
     .cont-products{
-        /* width: 650px; */
         flex-wrap: wrap;
     }
 
@@ -835,9 +795,10 @@ aside h4 {
         min-height: 296px;
         height: 405px;
     }
+}
 
-
-
+.virgula::after {
+    content: ",00";
 }
 
 /* ========== */

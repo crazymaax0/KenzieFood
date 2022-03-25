@@ -24,8 +24,7 @@ main {
     align-items: center;
 
     background-color: #F8F9FA;
-    border: 1px solid black;
-    box-shadow: 0px 0px 30px 6px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.2);
 }
 
 .formAlign {
@@ -157,11 +156,6 @@ main {
     margin-bottom: 5px;
     font-size: 1.7rem;
 }
-
-
-
-
-
 
 .displayNone {
     display: none !important;

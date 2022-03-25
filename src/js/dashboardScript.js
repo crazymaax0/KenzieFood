@@ -36,8 +36,6 @@ fecharEdicaoButton.addEventListener("click", () => {
     edicaoProdutoModal.classList.add("displayNone")
 })
 
-// FILTROS //
-
 const btnTodos = document.getElementById('Todos');
 
 btnTodos.addEventListener('click', async () => {
@@ -92,12 +90,9 @@ btnBebidas.addEventListener('click', function(){
     return resposta
 })
 
-// adicionar, editar e excluir produtos //
-
 const btnAddNewProduct = document.getElementById('add');
 
 btnAddNewProduct.addEventListener('click', () => Adm.getInfosNewProduct());
-
 
 const excluirProdutoModal  = document.getElementById("excluirProduto")
 const fecharExcluirButton  = document.getElementById("fecharExcluir")
@@ -129,12 +124,9 @@ for (let i = 0; i < btnRemoveProduct.length; i++){
 
         idRemocao = value
     }
-
-
 )}
 
 btnConfirmRemove.addEventListener("click", () => Adm.remove(idRemocao))
-
 
 const btnLogout = document.getElementById('usuario');
 
