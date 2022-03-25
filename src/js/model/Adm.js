@@ -10,13 +10,11 @@ export class Adm {
         descricao: ''
     };
 
-<<<<<<< Updated upstream
     static dataRegisterAdmin = {
         name: '',
         email: '',
         password: ''
     };
-=======
     static getUserInfo(){
         const colectInfo = window.localStorage.getItem("userInfo") 
         return JSON.parse(colectInfo)
@@ -96,7 +94,6 @@ export class Adm {
         }
         
     }
->>>>>>> Stashed changes
 
     static getInfosNewProduct(){
 
