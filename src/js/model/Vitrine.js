@@ -99,8 +99,6 @@ export class Vitrine {
         })
     }
 
-    static adicionado = false
-
     static async addToCart(e){
         
         let id = Number(e.target.id)
@@ -108,7 +106,6 @@ export class Vitrine {
             id = Number(e.target.parentNode.id)
         }
 
-        Vitrine.adicionado = true
         await API.addToCart(id)
         
         const cartItens = await API.cart()
@@ -126,7 +123,7 @@ export class Vitrine {
 
         ul.innerHTML = ""
 
-        if(Vitrine.adicionado === true){
+        if(cartProducts.length > 0){
             
             cartProducts.forEach((product) => {
                 const {quantity, products:{categoria, id, imagem, nome, preco}} = product
