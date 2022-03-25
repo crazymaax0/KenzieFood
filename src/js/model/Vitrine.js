@@ -162,7 +162,7 @@ export class Vitrine {
         }else{
             ul.innerHTML = `
             <div class="boxEmpty">
-            <img src="../../../src/img/carrinhoVazio.png" alt="Carrinho Vazio">
+            <img src="src/img/carrinhoVazio.png" alt="Carrinho Vazio">
             <p>Por enquanto não temos produtos no carrinho</p>
             </div>
             `
@@ -240,7 +240,7 @@ export class Vitrine {
         if(ul.children.length === 0){
             ul.innerHTML = `
             <div class="boxEmpty">
-            <img src="../../../src/img/carrinhoVazio.png" alt="Carrinho Vazio">
+            <img src="src/img/carrinhoVazio.png" alt="Carrinho Vazio">
             <p>Por enquanto não temos produtos no carrinho</p>
             </div>
             `
