@@ -132,7 +132,7 @@ export class API {
         })
 
         const data = await response.json()
-        
+        console.log(response)
         return data
     }
 

@@ -60,9 +60,9 @@ export class Adm {
 
                 localStorage.setItem('infosAdmin', JSON.stringify(dataAdmin))
 
-                // window.location = "../../../index.html"
+                window.location = "../../../index.html"
             }else{
-                // window.location = "../../../index.html"
+                window.location = "../../../index.html"
 
                 console.log(loginToken);
             }

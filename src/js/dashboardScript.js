@@ -7,7 +7,7 @@ Vitrine.createAdminPageProducts(products)
 
 const add                   = document.getElementById("add")
 const cadastroProdutoModal  = document.getElementById("cadastroProduto")
-const edicaoProdutoModal  = document.getElementById("edicaoProduto")
+const edicaoProdutoModal    = document.getElementById("edicaoProduto")
 const fecharCadastroButton  = document.getElementById("fecharCadastro")
 const editButton            = document.querySelectorAll("#editar")
 const confirmEdit           = document.querySelector("#alt-button")
@@ -134,3 +134,16 @@ for (let i = 0; i < btnRemoveProduct.length; i++){
 )}
 
 btnConfirmRemove.addEventListener("click", () => Adm.remove(idRemocao))
+
+
+const btnLogout = document.getElementById('usuario');
+
+btnLogout.addEventListener('click', () => {
+  removeInfoAdminLocalStorage()
+})
+
+function removeInfoAdminLocalStorage(){
+
+  localStorage.removeItem('infosAdmin')
+  localStorage.removeItem('userInfo')
+}

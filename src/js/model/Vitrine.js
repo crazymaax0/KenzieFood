@@ -69,7 +69,7 @@ export class Vitrine {
     }
 
     static async createAdminPageProducts(products) {
-        // const products = await API.adminProducts()
+
         const tbody = document.querySelector("tbody")
         tbody.innerHTML = ""
         products.forEach(({ id, categoria, descricao, imagem, nome}) => {
@@ -128,7 +128,6 @@ export class Vitrine {
         let cartProducts = Vitrine.getUserData()
 
         const ul = document.getElementById("cartUl")
-        console.log(ul.children.length)
 
         ul.innerHTML = ""
 
@@ -173,8 +172,6 @@ export class Vitrine {
             <p>Por enquanto não temos produtos no carrinho</p>
             </div>
             `
-            
-            console.log(ul.children.length)
         }
         
         const deleteButtons = document.querySelectorAll(".trash-can-background")
@@ -206,7 +203,7 @@ export class Vitrine {
     }
 
     static removeItem(e){
-
+        
         let id = Number(e.target.id)
         if(id === 0){
             id = Number(e.target.parentNode.id)

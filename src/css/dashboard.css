@@ -67,10 +67,37 @@ h2{
     box-sizing: border-box;
 }
 
+
+
 #usuario{
     width: 36px;
     height: 36px;
 }
+
+.header-page .search{
+    display: flex;
+
+}
+
+.header-page .search a{
+    text-decoration: none;
+    padding: 15px;
+    color: #ffffff;
+    background-color: #FF2253;
+    border-radius: 10px;
+}
+
+.header-page .search a:first-child{
+    
+    margin-right: 15px;
+}
+
+.header-page .search #btnLogout{
+    padding: 0;
+    background-color: transparent;
+    margin-right: 15px;
+}
+
 /* ========== */
 
 /* ===== MAIN ===== */
