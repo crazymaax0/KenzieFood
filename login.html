@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/font.css">
+    <link rel="stylesheet" href="./src/css/login.css">
+    <title>Login Kenzie Food</title>
+</head>
+<body>
+    
+    <main>
+
+        <div class="formAlign" >
+
+            <form action="" class="loginForm " id="loginForm">
+                <input type="email" name="email" placeholder="Email" autocomplete="off">
+                <input type="password" name="password" placeholder="Senha" autocomplete="off">
+                <input type="submit" value="enviar">
+            </form>
+
+            <form action="" class="registerForm displayNone" id="registerForm">
+                <input type="text" name="name" placeholder="Name" autocomplete="off">
+                <input type="email" name="email" placeholder="Email" autocomplete="off">
+                <input type="password" name="password" placeholder="Senha" autocomplete="off">
+                <input type="submit" value="cadastrar">
+            </form>
+
+        </div>
+        
+        <div class="choose" >
+            
+            <div class="login color" id="login">
+                <i class="fa-regular fa-user"></i>
+                <h3>Login</h3>
+            </div>
+
+            <div class="register" id="register">
+                <i class="fa-solid fa-square-pen"></i>
+                <h3>Registrar</h3>
+            </div>
+        </div>
+
+    </main>
+
+
+    <div class="alert displayNone" id="errado">
+
+        <div class="alertHead">
+            <h3>Status</h3>
+        </div>
+        <div class="alertBody">
+            <p>Conta não encontrada</p>
+            <div class="red" ></div>
+        </div>
+
+    </div>
+
+
+    <script src="https://kit.fontawesome.com/94fc682ddb.js" crossorigin="anonymous"></script>
+    <script type="module" src="./src/js/loginScript.js"></script>
+</body>
+</html>

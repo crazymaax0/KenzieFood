@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/font.css">
+    <link rel="stylesheet" href="./src/css/index.css">
+    <title>Kenzie Food</title>
+</head>
+
+<body>
+    <header class="header-page">
+
+        <div class="logo">
+
+            <h1>Kenzie</h1>
+
+            <h2>Food</h2>
+
+        </div>
+
+        <div class="infosAside">
+
+            <div class="pages">
+                <a href="./dashboard.html" id="btnDashboard">Dashboard</a>
+
+                <a href="./login.html" id="btnLogin">Login</a>
+
+                <a href="login.html" id="btnLogout">Logout</a>
+            </div>
+
+            <div class="search">
+
+                <input type="search" name="searchByName" placeholder="Pesquisar por produto" id="pesqNome">
+    
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <nav>
+        <input type="radio" name="categoria" id="Todos" checked>
+        <label class="categorias todos" for="Todos" >Todos</label>
+        <input type="radio" name="categoria" id="Hamburguers">
+        <label class="categorias panificadora" for="Hamburguers" >Hamburguers</label>
+        <input type="radio" name="categoria" id="Acompanhamentos">
+        <label class="categorias frutas" for="Acompanhamentos" >Acompanhamentos</label>
+        <input type="radio" name="categoria" id="Bebidas">
+        <label class="categorias bebidas" for="Bebidas" >Bebidas</label>
+    </nav>
+
+    <main>
+
+        <ul class="cont-products">
+                        
+        </ul>
+    
+        <div class="cartPopupBackGround displayNone" id="cartPopupBackGround">
+    
+            <div class="cartPopup" > 
+    
+                <div class="cartPopupTop" > 
+    
+                    <div class="cartPopupTopCarrinho" >
+                        <i class="fa-solid fa-cart-arrow-down"></i> 
+                        <span>Carrinho</span> 
+                    </div>
+    
+                    <div class="fa-xContainer" id="fecharCarrinho" >
+                        <i class="fa-solid fa-x" ></i>
+                    </div>
+                
+                </div>
+    
+                <div class="cartPopupBody" >
+    
+                    <ul id="cartUl" >
+    
+                    </ul>
+    
+    
+    
+                </div>
+    
+                <div class="cartPopupQnt" >
+    
+                    <span class="qnt" >Quantidade</span>
+    
+                    <div class="cartPopupQntTotal" >
+
+                    </div>
+    
+                </div>
+    
+                <div class="cartPopupTotal" >
+    
+                    <span class="total" >Total</span>
+    
+                    <div class="cartPopupTotalValor" >
+
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+        </div>
+        
+    </main>
+
+    <aside id="abrirCarrinho">
+        <i class="fa-solid fa-cart-arrow-down" ></i> <h4>Carrinho</h4>
+    </aside>
+
+    <script src="https://kit.fontawesome.com/94fc682ddb.js" crossorigin="anonymous"></script>
+    <script type="module" src="./src/js/script.js"></script>
+</body>
+
+</html>
