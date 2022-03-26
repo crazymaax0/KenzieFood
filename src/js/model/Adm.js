@@ -56,9 +56,9 @@ export class Adm {
 
                 localStorage.setItem('infosAdmin', JSON.stringify(dataAdmin))
 
-                window.location = "../../../api-kenziefood-m2-mucasliranda/index.html"
+                window.location = "../../../KenzieFood/index.html"
             }else{
-                window.location = "../../../api-kenziefood-m2-mucasliranda/index.html"
+                window.location = "../../../KenzieFood/index.html"
             }
         }
         
@@ -216,7 +216,7 @@ export class Adm {
                 setTimeout( () => {
                     criado.classList.remove("show")
                     criado.classList.add("displayNone")
-                    window.location = "../../../api-kenziefood-m2-mucasliranda/dashboard.html"
+                    window.location = "../../../KenzieFood/dashboard.html"
                 }, 1500)
         }
 
@@ -227,7 +227,7 @@ export class Adm {
                 setTimeout( () => {
                     produtoAlterado.classList.remove("show")
                     produtoAlterado.classList.add("displayNone")
-                    window.location = "../../../api-kenziefood-m2-mucasliranda/dashboard.html"
+                    window.location = "../../../KenzieFood/dashboard.html"
                 }, 1500)
         }
 
@@ -238,7 +238,7 @@ export class Adm {
                 setTimeout( () => {
                     produtoApagado.classList.remove("show")
                     produtoApagado.classList.add("displayNone")
-                    window.location = "../../../api-kenziefood-m2-mucasliranda/dashboard.html"
+                    window.location = "../../../KenzieFood/dashboard.html"
                 }, 1500)  
         }
 
